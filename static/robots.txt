@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Host: http://vaka-avto.ru
+Sitemap: http://vaka-avto.ru/sitemap.xml
