@@ -16,3 +16,8 @@ def marks():
 @app.route('/faq/')
 def faq():
     return render_template('faq.html')
+
+
+@app.route('/contacts/')
+def contacts():
+    return render_template('contact.html')
