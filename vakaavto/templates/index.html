@@ -12,29 +12,29 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     
     <!--Bootstrap-->
-    <link rel="stylesheet" href={{ url_for ('static', filename="css/bootstrap.min.css")}}>
-    <link rel="stylesheet" href={{ url_for ('static', filename="css/bootstrap-theme.min.css")}}>
+    <link rel="stylesheet" href="{{ url_for ('static', filename="css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename="css/bootstrap-theme.min.css")}}">
     <!--Font Awesome-->
-    <link rel="stylesheet" href={{ url_for ('static', filename="css/font-awesome.min.css")}}>
+    <link rel="stylesheet" href="{{ url_for ('static', filename="css/font-awesome.min.css")}}">
     <!--Owl Carousel-->
-    <link rel="stylesheet" href={{ url_for ('static', filename="vendors/owl.carousel/owl.carousel.css")}}>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/owl.carousel/owl.carousel.css')}}">
     <!--Magnific Popup-->
-    <link rel="stylesheet" href={{ url_for ('static', filename="vendors/magnific-popup/magnific-popup.css")}}>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/magnific-popup/magnific-popup.css')}}">
     <!-- RS5.0 Main Stylesheet -->
-	<link rel="stylesheet" type="text/css" href={{ url_for ('static', filename="vendors/revolution/css/settings.css")}}>
+	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/settings.css')}}">
 
 	<!-- RS5.0 Layers and Navigation Styles -->
-	<link rel="stylesheet" type="text/css" href={{ url_for ('static', filename="vendors/revolution/css/layers.css")}}>
-	<link rel="stylesheet" type="text/css" href={{ url_for ('static', filename="vendors/revolution/css/navigation.css")}}>
+	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/layers.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/navigation.css')}}">
     
     <!--Theme Styles-->
-    <link rel="stylesheet" href={{ url_for ('static', filename="css/style.css")}}>
-    <link rel="stylesheet" href={{ url_for ('static', filename="css/theme.css")}}>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/theme.css')}}">
     
     <!--[if lt IE 9]>
         
-        <script src={{ url_for ('static', filename="js/html5shiv.min.js")}}></script>
-        <script src={{ url_for ('static', filename='js/respond.min.js')}}></script>
+        <script src="{{ url_for ('static', filename='js/html5shiv.min.js')}}"></script>
+        <script src="{{ url_for ('static', filename='js/respond.min.js')}}"></script>
     <![endif]-->
 </head>
 <body>
@@ -66,9 +66,9 @@
 				<a href="#" class="btn btn-outline blue pull-right hidden-xs hidden-sm">Заказать звонок</a>
 				<ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Главная</a></li>
-					<li><a href="/">Как это работает</a></li>
-					<li><a href="about.html">Услуги</a></li>
-					<li><a href="contact.html">Марки</a></li>
+					<li><a href="/faq/">Как это работает</a></li>
+					<li><a href="">Услуги</a></li>
+					<li><a href="/marks/">Марки</a></li>
                     <li><a href="about.html">Контакты</a></li>
 				</ul>
 			</div>

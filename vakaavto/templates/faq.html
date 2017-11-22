@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Digital Agency</title>
+    
+    <!--Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/bootstrap-theme.min.css')}}">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/font-awesome.min.css')}}">
+    <!--Owl Carousel-->
+    <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/owl.carousel/owl.carousel.css')}}">
+    <!--Magnific Popup-->
+    <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/magnific-popup/magnific-popup.css')}}">
+    <!-- RS5.0 Main Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/settings.css')}}">
+
+	<!-- RS5.0 Layers and Navigation Styles -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/layers.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/navigation.css')}}">
+    
+    <!--Theme Styles-->
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/theme.css')}}">
+    
+    <!--[if lt IE 9]>
+        
+        <script src="{{ url_for ('static', filename='js/html5shiv.min.js')}}"></script>
+        <script src="{{ url_for ('static', filename='js/respond.min.js')}}"></script>
+    <![endif]-->
+</head>
+<body>
+	
+	<!--Header-->
+  	<header class="top-bar row">
+  		<div class="container">
+  			<div class="welcome-message">Добро пожаловать в Вакаавто</div>
+  			<ul class="nav top-nav">
+  				<li class="email"><a href="mailto:info@vakaavto.ru"><i class="fa fa-envelope-o"></i>info@vakaavto.ru</a></li>
+  				<li class="tel"><a href="tel:+74956485856"><i class="fa fa-phone"></i>+7 (495) 648-58-56</a></li>
+  			</ul>
+  		</div>
+  	</header>
+  	
+  	<!--Navigation-->
+  	<nav class="navbar navbar-default navbar-static-top">
+  		<div class="container">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			 	</button>
+			 	<a href="/" class="navbar-brand"><img src="{{ url_for ('static', filename='images/logo1.png')}}" alt=""></a>
+  			</div>
+			<div class="collapse navbar-collapse" id="main_nav">
+				<a href="#" class="btn btn-outline blue pull-right hidden-xs hidden-sm">Заказать звонок</a>
+				<ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Главная</a></li>
+					<li><a href="/faq/">Как это работает</a></li>
+					<li><a href="about.html">Услуги</a></li>
+					<li><a href="/marks/">Марки</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+				</ul>
+			</div>
+  		</div>
+  	</nav>
+  	
+  	<!--Page Cover-->
+  	<section class="row page-cover" data-bgimage="{{ url_for ('static', filename='images/marks_slider.png')}}">
+  		<div class="row m0">
+  			<div class="container">
+				<h2 class="page-title">Отремонтировать автомобиль - легко.</h2>
+			</div>
+  		</div>
+  	</section>
+
+    <!--Section icons-->
+  	<section class="row seo-features">
+  		<div class="container">
+
+
+
+            <div class="row m0 shop-tabs">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#problem-with-car" aria-controls="problem-with-car" role="tab" data-toggle="tab">Решим проблемы с автомобилем</a></li>
+							<li role="presentation"><a href="#find-service" aria-controls="find-service" role="tab" data-toggle="tab">Не нужно искать сервис</a></li>
+                            <li role="presentation"><a href="#online-record" aria-controls="online-record" role="tab" data-toggle="tab">Онлайн запись</a></li>
+                            <li role="presentation"><a href="#qestions" aria-controls="qestions" role="tab" data-toggle="tab">Вопросы ответы</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="problem-with-car">
+								<h4 class="tab-title">Проблема с автомобилем? Мы поможем решить её!</h4>
+								<p>Вы можете заказать любую услугу по ремонту автомобиля, получить адекватную цену и
+                                    зарезервировать автосервис. Мы сами доставим сервису расходные материалы и запчасти,
+                                    поэтому стоимость обслуживания и ремонта обойдётся дешеле, чем в других сервисах.
+                                </p>
+                                <h4 class="tab-title">Нам важно узнать у Вас</h4>
+								<ul>
+                                    <li><p>Что Вас беспокоит в машине? (или, например вы точно знаете что нужна "замена колодок" или "ремонт двигателя")</p></li>
+                                    <li><p>Год, марка и модель вашего автомобиля</p></li>
+                                    <li><p>Ваше имя, адрес электронной почты, номер телефона и удобное время ремонта.</p></li>
+                                </ul>
+                                <h4>Получите честную цену</h4>
+                                <p>Мы предоставим подробный перечень услуг и расходных материалов, необходимых для обслуживания Вашего автомобиля.</p>
+                                <p>Мы соблюдаем несколько простых правил. Это гарантия того, что ремонт будет совершен качественно, а стоимость не увеличится в процессе ремонта.</p>
+                                <h4>Зарезервируйте сервис</h4>
+                                <p>Перед тем, как запланировать обслуживание или ремонт, мы предоставим информацию о
+                                     сервисе, фотографии, рейтинги и отзывы других клиентов. Наши сервисы доступны 7
+                                     дней. Просто закажите услуги и забронируйте время приема. Не переживайте, деньги
+                                     никуда не денутся пока Вы не примете работу. Если всё понравится, вы оплатите
+                                     оставшуюся часть и только тогда спишется сумма ремонта.
+                                </p>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="find-service">
+
+                                <h4 class="tab-title">Не нужно искать сервис самому</h4>
+								<p>Мы избавим Вас от хлопот по поиску хорошего автосервиса. Все необходимые детали и
+                                    запчасти для вашего автомобиля будут на сервисе в назначенный день, либо будут
+                                    доставлены в течение 1 часа.
+                                </p>
+                                <h4 class="tab-title">Расскажите нам</h4>
+								<ul>
+                                    <li><p>Что Вас беспокоит в машине? (или, например вы точно знаете что нужна "замена колодок" или "ремонт двигателя")</p></li>
+                                    <li><p>Год, марка и модель вашего автомобиля</p></li>
+                                    <li><p>Ваше имя, адрес электронной почты, номер телефона и удобное время ремонта.</p></li>
+                                </ul>
+                                <h4>В день ремонта</h4>
+                                <p>Вы получите смс за час до назначенного на сервисе времени.</p>
+                                <h4>Во время посещения сервиса</h4>
+                                <p>Не стесняйтесь звонить и задавать вопросы специалистам. Механиков на сервисе вы
+                                    можете попросить предоставить запчасти, которые они заменили.
+                                </p>
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="online-record">
+
+                                <h4 class="tab-title">Удобная онлайн запись</h4>
+								<p>Забронировать время на сервисе и узнать стоимость ремонта возможно, записавшись
+                                    предварительно через спеицальную форму которая находится внизу страницы.
+                                </p>
+                                <p>Что произойдет, если вашему автомобилю необходим дополнительный ремонт, или
+                                    наоборот, работ будет гораздо меньше?
+                                </p>
+                                <p>
+                                    Если на сервисе выяснят, что ваш автомобиль не нуждается в заказанном ремонте,
+                                    мы удалим ненужные услуги и снизим счет, прямо на месте. Вы платите только за то,
+                                    что действительно сделали вашему автомобилю.
+                                </p>
+                                <p>Если вашему автомобилю необходим дополнительный ремонт, вы можете согласовать это с
+                                    личным помощником, чтобы получить скидку на эти работы и запчасти.
+                                    Кроме того, личный помощник скажет, действительно ли нужны дополнительные услуги.
+                                </p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="qestions">
+                                <h4 class="tab-title">Как работает Вакаавто?</h4>
+								<p>Вакаавто ремонтирует автомобили по фиксированным ценам в надежных и проверенных
+                                    нашими специалистами автосервисах.
+                                </p>
+                                <p>Для того, чтобы получить фиксированную стоимость работ и запчастей, необходимо
+                                    выбрать вид услуги, ввести данные своего автомобиля и забронировать выбранный
+                                    автосервис онлайн либо записаться при личном визите. Посетите его и отремонтируйте
+                                    свой автомобиль по фиксированной цене.
+                                </p>
+                                <p>
+                                    Ваш персональный менеджер Вакаавто сопровождает Вас от выбора услуги до окончания
+                                    ремонта и оплаты, а также решает все вопросы.
+                                </p>
+                                <h4 class="tab-title">Как Вакаавто предоставляет фиксированную цену на услуги и запчасти?</h4>
+                                <p>Все автосервисы CarFix ремонтируют автомобили по фиксированным ценам и низкой маржой
+                                    на комлектующие. Мы делаем отношения между клиентом и автосервисом прозрачными, без
+                                    намеренного завышения стоимости работ и запчастей.
+                                </p>
+                                <h4>Какая будет цена на услуги и запчасти, если я обращусь в автосервис напрямую?</h4>
+                                <p>Цены Вакаавто всегда ниже розничных. Обеспечив большой поток клиентов в автосервисы,
+                                    мы договорились о специальных ценах на работы и запчасти для посетителей сайта Вакаавто.
+                                </p>
+                                <h4>Сколько времени занимает расчет фиксированной цены?</h4>
+                                <p>Введите минимальные данные своего автомобиля и мгновенно получите стоимость ремонта.
+                                    В неё уже будет включена цена запчастей и комплектующих.
+                                </p>
+                                <p>
+                                    Введите VIN номер своего автомобиля, выберите запчасти и зафиксируйте точную цену, предложенную автосервисом.
+                                </p>
+                                <h4>Может ли поменяться фиксированная цена?</h4>
+                                <p>Мы гарантируем Вам, что фиксированная цена останется неизменной.</p>
+                                <p>Если вам будут предлагать дополнительные услуги, проверяйте их стоимость через
+                                    приложение Вакаавто или звоните нам.
+                                </p>
+                                <p>Вакаавто обеспечит Вам выгодную цену, а наш консультант подскажет,
+                                    действительно ли нужен этот ремонт.
+                                </p>
+                                <h4>Что происходит, если автосервис некачественно выполнил свою работу?</h4>
+                                <p>
+                                    Во-первых это маловероятно, так как мы тщательно отбираем автосервисы перед началом
+                                    сотрудничества. Во-вторых Вакаавто содержит штат персональных менеджеров, которые в
+                                    прошлом долго работали мастерами в автосервисах. Персональный менеджер Вакаавто
+                                    сопровождает Вас от выбора услуги до окончания ремонта и оплаты, а также решает все
+                                    вопросы. В случае возникновения проблем, менеджер незамедлительно свяжется с
+                                    автосервисом и поможет Вам устранить все недостатки, действуя исключительно в
+                                    Ваших интересах.
+                                </p>
+                                <p>О каждом автосервисе Вы можете оставить публичный отзыв . Мы их тщательно
+                                    анализируем, а после принимаем решение о дальнейшей работе с автосервисом.
+                                </p>
+                                <h4>Как происходит финальная оплата за ремонт?</h4>
+                                <p>При бронировании автосервиса мы резервируем процент от стоимости заказа. После
+                                    посещения автосервиса и завершения ремонта, Вы вместе с персональным менеджером
+                                    Вакаавто принимаете работу и оплачиваете оставшуюся часть суммы напрямую
+                                    автосервису картой или наличными.
+                                </p>
+                                <h4>Что делать, если я не знаю, что случилось с моим автомобилем?</h4>
+                                <p>
+                                    Позвоните нам, и Вас проконсультируют совершенно бесплатно, а при необходимости,
+                                    менеджер поможет записаться в автосервис.
+                                </p>
+                                <h4>Как стать партнером CarFix?</h4>
+                                <p>
+                                    Позвоните нам и договоритесь о встрече с нашим менеджером по работе с партнерами.
+                                    В случае прохождения системы контроля качества, Вы станете нашим партнером.
+                                </p>
+                                <h4>Не нашли ответа на свой вопрос?</h4>
+                                <h4>Оставьте свои контактные данные и наш менеджер свяжется и ответит на все Ваши вопросы.</h4>
+                            </div>
+						</div>
+					</div>
+  				</div>
+
+
+
+  		</div>
+  	</section>
+    <!--End section icons-->
+
+  	<!--Footer-->
+  	<footer class="row site-footer">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-md-9 col-md-push-6 half-side">
+  					<div class="footer-contact row footer-widget right-box">
+  						<h3 class="footer-title">Обратная связь</h3>
+  						<ul class="nav">
+  							<li class="tel"><a href="tel:+74956485856"><i class="fa fa-phone"></i>+7 (495) 648-58-56</a></li>
+  							<li class="email"><a href="mailto:info@vakaavto.ru"><i class="fa fa-envelope-o"></i>info@vakaavto.ru</a></li>
+  						</ul>
+  					</div>
+  					<div class="footer-newsletter row footer-widget right-box">
+  						<h3 class="footer-title">Позвоните мне</h3>
+  						<form class="form-inline">
+							<input type="text" class="form-control" placeholder="Имя">
+							<input type="text" class="form-control" placeholder="Номер">
+							<button type="submit" class="btn btn-primary">Отправить</button>
+						</form>
+  					</div>
+  				</div>
+  				<div class="col-md-3 col-md-pull-6 half-side">
+  					<div class="footer-about left-box footer-widget row">
+  						<h3 class="footer-title">Наши контакты:</h3>
+                        <p>г. Москва</p>
+                        <p>Одинцовский район</p>
+                        <p>пос. Новоивановское</p>
+                        <p>Можайское шоссе, вл. 30</p>
+  					</div>
+  					<div class="copyright-row left-box footer-widget row">
+  						© 2017 VakaAvto. Все права защищены. <a href="http://vakaavto.ru">vakaavto.ru</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</footer>
+    
+    <script src="{{ url_for ('static', filename='js/jquery-2.1.4.min.js')}}"></script>
+    <script src="{{ url_for ('static', filename='js/bootstrap.min.js')}}"></script>
+    <!--Magnific Popup-->
+    <script src="{{ url_for ('static', filename='vendors/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <!--Owl Carousel-->
+    <script src="{{ url_for ('static', filename='vendors/owl.carousel/owl.carousel.min.js')}}"></script>
+    <!--CounterUp-->
+    <script src="{{ url_for ('static', filename='vendors/couterup/jquery.counterup.min.js')}}"></script>
+    <!--WayPoints-->
+    <script src="{{ url_for ('static', filename='vendors/waypoint/waypoints.min.js')}}"></script>
+    <!--Isotope-->
+    <script src="{{ url_for ('static', filename='vendors/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ url_for ('static', filename='vendors/isotope/isotope.min.js')}}"></script>
+    <!--Theme Script-->    
+    <script src="{{ url_for ('static', filename='js/theme.js')}}"></script>
+</body>
+</html>

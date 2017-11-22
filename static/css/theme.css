@@ -623,7 +623,7 @@
 /*--------------------------------------------------------------------------------------------*/
 /*Page Cover*/
 .page-cover .page-title {
-  color: #243c4f;
+  color: #fff;
 }
 .page-cover .page-title:after {
   background: #00b4fa;
@@ -1619,6 +1619,7 @@
 }
 .shop-tabs .tab-pane p {
   color: #56758d;
+  margin-bottom: 1%;
 }
 .shop-tabs .tab-title {
   color: #243c4f;

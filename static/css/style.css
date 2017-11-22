@@ -2784,11 +2784,11 @@ a:focus, a:hover, .btn:focus, .btn:hover, button:focus, button:hover {
   font-weight: 300;
 }
 .shop-tabs .tab-pane p + p {
-  margin-top: 30px;
+  margin-top: 0;
 }
 .shop-tabs .tab-title {
   margin-top: 0;
-  margin-bottom: 25px;
+  margin-bottom: 2%;
   font-weight: 500;
 }
 
