@@ -67,42 +67,83 @@
 				<ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Главная</a></li>
 					<li><a href="/faq/">Как это работает</a></li>
-					<li><a href="about.html">Услуги</a></li>
+					<li><a href="/services/">Услуги</a></li>
 					<li><a href="/marks/">Марки</a></li>
                     <li><a href="/contacts/">Контакты</a></li>
 				</ul>
 			</div>
   		</div>
   	</nav>
-        <section class="row more-services">
+
+
+
+        <section class="row more-services" style="margin-bottom: -5%; margin-top: -3%">
             <div class="container">
-                <div class="row sectionTitle">
-                    <h2 class="this-title">Главный офис в Москве</h2>
-                    <p>г. Москва, Можайское шоссе, 30, Новоивановское, 143026</p>
-                </div>
                 <div class="col-md-4">
-                    <h3 style="margin-bottom: 3%">Наши контакты :</h3>
-                    <ul>
-                        <li class="email"><h4>Почта, куда можно написать :</h4>
-                            <a href="mailto:info@vakaavto.ru">
-                                <i class="fa fa-envelope-o fa-2x" style="margin-right: 3%"></i> info@vakaavto.ru</a>
-                        </li>
-                        <li class="tel"><h4>Телефон куда можно позвонить: </h4>
-                            <a href="tel:+74956485856">
-                                <i class="fa fa-phone fa-2x" style="margin-right: 3%"></i> +7 (495) 648-58-56</a>
-                        </li>
-                        <li><h4>Телефон куда можно позвонить: </h4>
-                            <a href="tel:+74956485856">
-                                <i class="fa fa-clock-o fa-2x" style="margin-right: 3%"></i> Ежедневно с 8:00 по 22:00</a>
-                        </li>
-                    </ul>
+                    <h2 class="this-title">Задать вопрос :</h2>
+                    <form action="#" class="row free-analysis-form style2" method="get">
+  						<div class="input-group">
+  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/21.png')}}" alt=""></span>
+  							<input type="text" class="form-control" placeholder="Имя">
+  						</div>
+  						<div class="input-group">
+  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/22.png')}}" alt=""></span>
+  							<input type="email" class="form-control" placeholder="Email адрес">
+  						</div>
+  						<div class="input-group">
+  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/23.png')}}" alt=""></span>
+  							<input type="tel" class="form-control" placeholder="Номер телефона">
+  						</div>
+  						<div class="input-group">
+  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/24.png')}}" alt=""></span>
+  							<textarea class="form-control" placeholder="Сообщение"></textarea>
+  						</div>
+  						<input type="submit" value="Отправить" class="btn btn-primary btn-sm">
+  					</form>
                 </div>
-                <div class="col-md-8">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.685861405744!2d37.37471495167054!3d55.71183200252293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54e51cd4fbfb5%3A0x28623f1c40af75d3!2z0JLQsNC60LAt0JDQstGC0L4rLA!5e0!3m2!1sru!2sru!4v1511358502758" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <br>
+                <div class="col-md-8 col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.685861405744!2d37.37471495167054!3d55.71183200252293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54e51cd4fbfb5%3A0x28623f1c40af75d3!2z0JLQsNC60LAt0JDQstGC0L4rLA!5e0!3m2!1sru!2sru!4v1511358502758" width="800" height="600" frameborder="0" style="border:0; width: 100%" allowfullscreen></iframe>
                 </div>
 
             </div>
         </section>
+
+
+{#    <section class="row free-analysis" id="free-analysis">#}
+{#  		<div class="container">#}
+{#  			<div class="row">#}
+{#  				<div class="col-sm-6">#}
+{#  					<h2 class="this-title">Request a Free Analysis</h2>#}
+{#  					<p>It's important you have a content strategy. So, here's a walkthrough to creating a content marketing strategy.</p>#}
+{#  				</div>#}
+{#  			</div>#}
+{#  			<div class="row">#}
+{#  				<div class="col-sm-4">#}
+{#  					<form action="#" class="row free-analysis-form style2" method="get">#}
+{#  						<div class="input-group">#}
+{#  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/21.png')}}" alt=""></span>#}
+{#  							<input type="text" class="form-control" placeholder="Full Name">#}
+{#  						</div>#}
+{#  						<div class="input-group">#}
+{#  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/22.png')}}" alt=""></span>#}
+{#  							<input type="email" class="form-control" placeholder="Email Address">#}
+{#  						</div>#}
+{#  						<div class="input-group">#}
+{#  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/23.png')}}" alt=""></span>#}
+{#  							<input type="tel" class="form-control" placeholder="Phone Number">#}
+{#  						</div>#}
+{#  						<div class="input-group">#}
+{#  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/24.png')}}" alt=""></span>#}
+{#  							<textarea class="form-control" placeholder="Message"></textarea>#}
+{#  						</div>#}
+{#  						<input type="submit" value="Отправить" class="btn btn-primary btn-sm">#}
+{#  					</form>#}
+{#  				</div>#}
+{#  			</div>#}
+{#  		</div>#}
+{#  	</section>#}
+
 
   	<!--Contact Infos-->
   	<section class="row contact-infos">

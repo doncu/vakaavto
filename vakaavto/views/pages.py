@@ -21,3 +21,8 @@ def faq():
 @app.route('/contacts/')
 def contacts():
     return render_template('contact.html')
+
+
+@app.route('/services/')
+def services():
+    return render_template('services.html')
