@@ -26,3 +26,7 @@ def contacts():
 @app.route('/services/')
 def services():
     return render_template('services.html')
+
+@app.route('/calc/')
+def calc():
+    return render_template('calc.html')
