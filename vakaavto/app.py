@@ -2,6 +2,7 @@ import os
 import datetime as dt
 
 from flask import Flask
+from flask_admin import Admin
 
 from vakaavto import settings
 
@@ -15,8 +16,16 @@ app = Flask(
 )
 app.config.from_object(conf)
 
+admin = Admin(app, name='admin')
+
+
+@app.teardown_request
+def remove_session(*args):
+    from vakaavto import db
+    db.session.rollback()
+    db.session.remove()
+
+
 app.add_template_global(dt.datetime.now, name='now')
 
-
-import vakaavto.views.pages
-import vakaavto.views.sitemap
+import vakaavto.urls

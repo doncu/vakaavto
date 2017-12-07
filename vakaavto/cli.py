@@ -14,5 +14,12 @@ def cli(debug):
     os.environ['FLASK_DEBUG'] = '1' if debug else '0'
 
 
+@cli.command(with_appcontext=False)
+def initdb():
+    from vakaavto import app
+    from vakaavto import db
+    db.import_models()
+
+
 if __name__ == '__main__':
     cli()

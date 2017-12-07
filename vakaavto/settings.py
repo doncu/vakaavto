@@ -10,10 +10,16 @@ class BaseSettings:
     STATIC_URL_PATH = ''
     STATIC_FOLDER = ''
 
+    DATABASE_URI = ''
+    IMG_PATH = ''
+
 
 class LocalSettings(BaseSettings):
     STATIC_URL_PATH = '/static'
     STATIC_FOLDER = os.path.join(os.path.dirname(BaseSettings.BASE_PATH), 'static')
+
+    DATABASE_URI = 'sqlite:///{}'.format(os.path.join(BaseSettings.BASE_PATH, '..', 'vakaavto.db'))
+    IMG_PATH = os.path.join(os.path.dirname(BaseSettings.BASE_PATH), 'img')
 
 
 class ProdSettings(BaseSettings):
