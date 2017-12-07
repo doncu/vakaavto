@@ -4,6 +4,8 @@ import os
 class BaseSettings:
     DOMAIN = 'vaka-avto.ru'
 
+    SECRET_KEY = 'adsttasdasdoasd0as98d0am4m35048m90mcw4fum3h4650439875n4354'
+
     BASE_PATH = os.path.abspath(os.path.dirname(__file__))
     TEMPLATE_FOLDER = os.path.join(BASE_PATH, 'templates')
 
