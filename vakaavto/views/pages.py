@@ -1,32 +1,40 @@
+import collections
+
 from flask import render_template
 
-from vakaavto.app import app
+from vakaavto import db
+from vakaavto.models import auto
+from vakaavto.models import service
 
 
-@app.route('/')
 def index():
-    return render_template('index.html')
+    services = db.session.query(service.Service).filter(service.Service.parent_id == None).all()
+    auto_marks = db.session.query(auto.AutoMark).all()
+    return render_template('index.html', services=services, auto_marks=auto_marks)
 
 
-@app.route('/marks/')
 def marks():
-    return render_template('marks.html')
+    auto_marks = db.session.query(auto.AutoMark).all()
+    return render_template('marks.html', auto_marks=auto_marks)
 
 
-@app.route('/faq/')
-def faq():
-    return render_template('faq.html')
+def help():
+    return render_template('help.html')
 
 
-@app.route('/contacts/')
 def contacts():
     return render_template('contact.html')
 
 
-@app.route('/services/')
 def services():
-    return render_template('services.html')
+    parent_objects = db.session.query(service.Service).filter(service.Service.parent_id == None).all()
+    child_objects = db.session.query(service.Service).filter(service.Service.parent_id != None).all()
+    childs = collections.defaultdict(list)
+    for obj in child_objects:
+        childs[obj.parent_id].append(obj)
+    result = [dict(obj=obj, childs=childs.get(obj.id, [])) for obj in parent_objects]
+    return render_template('services.html', services=result)
 
-@app.route('/calc/')
+
 def calc():
     return render_template('calc.html')
