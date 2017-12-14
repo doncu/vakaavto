@@ -4,6 +4,7 @@ from flask import render_template
 
 from vakaavto import db
 from vakaavto.models import auto
+from vakaavto.models import howto
 from vakaavto.models import service
 
 
@@ -19,7 +20,8 @@ def marks():
 
 
 def help():
-    return render_template('help.html')
+    objects = db.session.query(howto.HowTo).all()
+    return render_template('help.html', objects=objects)
 
 
 def contacts():

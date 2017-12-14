@@ -11,8 +11,11 @@ class Service(db.Base):
 
     title = sa.Column(sa.Text, index=True)
 
-    min_image = sa.Column(sa.Text, nullable=True, default=None)
-    big_image = sa.Column(sa.Text, nullable=True, default=None)
+    glyphicon = sa.Column(sa.Text)
+    big_image = sa.Column(sa.Text)
 
     parent_id = sa.Column(sa.Integer, sa.ForeignKey('vakaavto_services.id'), nullable=True, default=None)
-    parent = orm.relationship('Service')
+    parent = orm.relationship('Service', backref='child', remote_side='Service.id')
+
+    def __str__(self):
+        return self.title
