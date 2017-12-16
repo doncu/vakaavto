@@ -1,3 +1,5 @@
+import os
+
 from flask_admin.form import upload
 from flask_admin.contrib import sqla
 
@@ -37,7 +39,11 @@ class AutoMarks(AdminModelView):
     form_args = dict(title=dict(label='Название марки'))
     form_overrides = dict(title=wtforms.StringField)
     form_extra_fields = dict(
-        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
+        image=upload.ImageUploadField(
+            label='Картинка',
+            base_path=os.path.join(app.config['IMG_PATH'], 'marks'),
+            endpoint='image'
+        )
     )
 
 
@@ -60,7 +66,11 @@ class Services(AdminModelView):
     )
     form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField, text=fields.CKTextAreaField)
     form_extra_fields = dict(
-        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
+        image=upload.ImageUploadField(
+            label='Картинка',
+            base_path=os.path.join(app.config['IMG_PATH'], 'services'),
+            endpoint='image'
+        )
     )
 
 

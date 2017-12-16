@@ -9,14 +9,9 @@ from vakaavto.models import service
 
 
 def index():
-    services = db.session.query(service.Service).filter(service.Service.parent_id is None).all()
+    services = db.session.query(service.Service).filter(service.Service.parent_id == None).all()
     auto_marks = db.session.query(auto.AutoMark).all()
     return render_template('index.html', services=services, auto_marks=auto_marks)
-
-
-def marks():
-    auto_marks = db.session.query(auto.AutoMark).all()
-    return render_template('marks.html', auto_marks=auto_marks)
 
 
 def help():

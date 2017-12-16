@@ -4,6 +4,7 @@ import datetime as dt
 from flask import Flask
 from flask_admin import Admin
 
+from vakaavto import utils
 from vakaavto import settings
 
 
@@ -26,6 +27,7 @@ def remove_session(*args):
     db.session.remove()
 
 
+app.add_template_global(utils.chunks, name='chunks')
 app.add_template_global(dt.datetime.now, name='now')
 
 import vakaavto.urls
