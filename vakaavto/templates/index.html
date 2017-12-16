@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% set meta_title = 'Вака-Авто - Информация об услугах и сервисах техцентра' %}
+{% set meta_keywords = '' %}
+{% set meta_description = '' %}
+
 {% block slider %}
   	<!--Slider Area-->
   	<section class="row main-slider-area">
@@ -248,12 +253,13 @@
         {% for chunk in chunks(services, 3) %}
             <div class="service-blocks row">
                 {% for service in chunk %}
+                    {% set alias = service.title | transliterate %}
                 <div class="col-sm-4 related-case2">
                     <div class="row inner">
-                        <a href="#">
+                        <a href="{{ url_for('services', alias=alias) }}">
                             <h3 class="this-title">{{ service.title }}</h3>
+                            <img src="{{ url_for ('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
                         </a>
-                        <img src="{{ url_for ('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
                     </div>
                 </div>
                 {% endfor %}

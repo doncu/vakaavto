@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% set meta_title = 'Вака-Авто - Сервисы Техцентра' %}
+{% set meta_keywords = '' %}
+{% set meta_description = '' %}
+
 {% block slider %}
   	<!--Page Cover-->
   	<section class="row page-cover" data-bgimage="/static/images/faq_slider.png">
@@ -18,8 +23,9 @@
                     <ul class="nav nav-tabs tabs-left" style="margin-right: 0">
                         {% for catalog in catalogs %}
                             {% set catalog = catalog.obj %}
-                            <li class="{% if loop.first %}active{% endif %}">
-                                <a href="{{ catalog.title | transliterate }}" data-toggle="tab">
+                            {% set catalog_alias = catalog.title | transliterate %}
+                            <li class="{% if loop.first or catalog_alias == alias %}active{% endif %}">
+                                <a href="#{{ catalog_alias }}" data-toggle="tab">
                                     <span class="{% if catalog.glyphicon %}glyphicon glyphicon-{{ catalog.glyphicon }}{% endif %}" aria-hidden="true"></span>
                                     {{ catalog.title }}
                                 </a>
