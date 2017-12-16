@@ -4,6 +4,7 @@ from flask_admin.form import upload
 from flask_admin.contrib import sqla
 
 import wtforms
+from wtforms import validators
 
 from vakaavto import db
 from vakaavto.app import app
@@ -47,7 +48,7 @@ class AutoMarks(AdminModelView):
     )
 
 
-@register(None, 'Сервисы', '/admin/services/', 'admin.services')
+@register('Cервисы', 'Каталог', '/admin/catalog/', 'admin.catalog')
 class Services(AdminModelView):
     __model__ = service.Service
 
@@ -57,10 +58,39 @@ class Services(AdminModelView):
     column_list = ('title', )
     column_labels = dict(title='Заголовок')
 
+    form_columns = ('title', 'glyphicon', 'image', )
+    form_args = dict(
+        title=dict(label='Название сервиса'),
+        glyphicon=dict(label='Название иконочки'),
+    )
+    form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField)
+    form_extra_fields = dict(
+        image=upload.ImageUploadField(
+            label='Картинка',
+            base_path=os.path.join(app.config['IMG_PATH'], 'services'),
+            endpoint='image'
+        )
+    )
+
+    def get_query(self):
+        query = super().get_query()
+        return query.filter(self.model.parent_id == None)
+
+
+@register('Cервисы', 'Сервисы', '/admin/services/', 'admin.services')
+class Catalog(AdminModelView):
+    __model__ = service.Service
+
+    create_template = 'admin/create.html'
+    edit_template = 'admin/edit.html'
+
+    column_list = ('title', 'parent')
+    column_labels = dict(title='Заголовок', parent='Каталог')
+
     form_columns = ('title', 'parent', 'glyphicon', 'image', 'text')
     form_args = dict(
         title=dict(label='Название сервиса'),
-        parent=dict(label='Каталог'),
+        parent=dict(label='Каталог', validators=[validators.Required]),
         glyphicon=dict(label='Название иконочки'),
         text=dict(label='Описание сервиса')
     )
@@ -72,6 +102,10 @@ class Services(AdminModelView):
             endpoint='image'
         )
     )
+
+    def get_query(self):
+        query = super().get_query()
+        return query.filter(self.model.parent_id != None)
 
 
 @register(None, 'Как это работает', '/admin/howto/', 'admin.howto')
