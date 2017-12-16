@@ -93,3 +93,9 @@
   		</div>
   	</section>
 {% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <!--Google Maps -->
+    <script src="{{ url_for ('static', filename='js/gmaps.min.js')}}"></script>
+{% endblock %}
