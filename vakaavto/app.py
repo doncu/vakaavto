@@ -27,6 +27,7 @@ def remove_session(*args):
     db.session.remove()
 
 
+app.add_template_filter(utils.transliterate, name='transliterate')
 app.add_template_global(utils.chunks, name='chunks')
 app.add_template_global(dt.datetime.now, name='now')
 

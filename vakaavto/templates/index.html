@@ -212,81 +212,77 @@
   			</ul>
   		</div>
   	</section>
-    {% endblock %}
+{% endblock %}
 
-    {% block content %}
-  	<!--Feature Services Blocks-->
-  	<section class="row featured-service-blocks">
-  		<div class="container">
-  			<div class="col-md-4 featured-service-block">
-  				<div class="icon-holder"><img src="{{ url_for ('static', filename='images/icons/service/11.png')}}" alt=""></div>
-  				<h3 class="this-title"><a href="#">Сделайте заказ на сайте или по телефону</a></h3>
-  				<p class="this-summary" style="font-size: 16px">Наши специалисты дадут бесплатную, быструю и технически грамотную консультацию по вашему вопросу.</p>
-  			</div>
-  			<div class="col-md-4 featured-service-block">
-  				<div class="icon-holder"><img src="{{ url_for ('static', filename='images/icons/service/12.png')}}" alt=""></div>
-  				<h3 class="this-title"><a href="#">Получите выгодное предложение в течение 10 минут</a></h3>
-  				<p class="this-summary" style="font-size: 16px">Личный помощник подберет запасные части или расходные материалы.</p>
-  			</div>
-  			<div class="col-md-4 featured-service-block">
-  				<div class="icon-holder"><img src="{{ url_for ('static', filename='images/icons/service/13.png')}}" alt=""></div>
-  				<h3 class="this-title"><a href="#">Ремонт автомобиля точно в срок</a></h3>
-  				<p class="this-summary" style="font-size: 16px">Не нужно ждать своей очереди в автосервисе. Вы приезжаете в назначенное время.</p>
-                <br>
-  			</div>
-  		</div>
-  	</section>
-
-
-  	<!--Service Block-->
-  	<section class="row more-services">
-  		<div class="container">
-  			<div class="row sectionTitle">
-  				<h2 class="this-title">Более 150 услуг по ремонту и обслуживанию автомобилей</h2>
-  				<p>Выберите категорию, нужную услугу и сделайте заказ</p>
-  			</div>
-            {% for chunk in chunks(services, 3) %}
-  			    <div class="service-blocks row">
-                    {% for service in chunk %}
-                    <div class="col-sm-4 related-case2">
-  					    <div class="row inner">
-                            <a href="#">
-                                <h3 class="this-title">{{ service.title }}</h3>
-                            </a>
-						    <img src="{{ url_for ('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
-					    </div>
-  				    </div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
+{% block content %}
+<!--Feature Services Blocks-->
+<section class="row featured-service-blocks">
+    <div class="container">
+        <div class="col-md-4 featured-service-block">
+            <div class="icon-holder"><img src="{{ url_for ('static', filename='images/icons/service/11.png')}}" alt=""></div>
+            <h3 class="this-title"><a href="#">Сделайте заказ на сайте или по телефону</a></h3>
+            <p class="this-summary" style="font-size: 16px">Наши специалисты дадут бесплатную, быструю и технически грамотную консультацию по вашему вопросу.</p>
         </div>
-    </section>
-    <!-- End Service Block-->
+        <div class="col-md-4 featured-service-block">
+            <div class="icon-holder"><img src="{{ url_for ('static', filename='images/icons/service/12.png')}}" alt=""></div>
+            <h3 class="this-title"><a href="#">Получите выгодное предложение в течение 10 минут</a></h3>
+            <p class="this-summary" style="font-size: 16px">Личный помощник подберет запасные части или расходные материалы.</p>
+        </div>
+        <div class="col-md-4 featured-service-block">
+            <div class="icon-holder"><img src="{{ url_for ('static', filename='images/icons/service/13.png')}}" alt=""></div>
+            <h3 class="this-title"><a href="#">Ремонт автомобиля точно в срок</a></h3>
+            <p class="this-summary" style="font-size: 16px">Не нужно ждать своей очереди в автосервисе. Вы приезжаете в назначенное время.</p>
+            <br>
+        </div>
+    </div>
+</section>
 
-  	<!--Served Clients-->
-  	<section class="row seo-features">
-  		<div class="container">
-  			<div class="row sectionTitle">
-  				<h2 class="this-title">Ремонт и обслуживание любых марок автомобилей</h2>
-  				<p>Выберите свою марку и сделайте заказ</p>
-  			</div>
-            <div align="center" class="row">
-                <table class="table table-bordered" style="border: hidden">
-                    <tbody>
-                    {% for chunk in chunks(auto_marks, 6) %}
-                        <tr>
-                        {% for mark in auto_marks %}
-                            <td style="text-align: center; border: hidden"><img src="{{ url_for ('image', filename=mark.image)}}" alt=""><p>{{ mark.title }}</p></td>
-                        {% endfor %}
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+
+<!--Service Block-->
+<section class="row more-services">
+    <div class="container">
+        <div class="row sectionTitle">
+            <h2 class="this-title">Более 150 услуг по ремонту и обслуживанию автомобилей</h2>
+            <p>Выберите категорию, нужную услугу и сделайте заказ</p>
+        </div>
+        {% for chunk in chunks(services, 3) %}
+            <div class="service-blocks row">
+                {% for service in chunk %}
+                <div class="col-sm-4 related-case2">
+                    <div class="row inner">
+                        <a href="#">
+                            <h3 class="this-title">{{ service.title }}</h3>
+                        </a>
+                        <img src="{{ url_for ('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
+                    </div>
+                </div>
+                {% endfor %}
             </div>
-  		</div>
-  	</section>
-    {% endblock%}
+        {% endfor %}
+    </div>
+</section>
+<!-- End Service Block-->
 
-    {% block footer %}
-
-    {% endblock %}
+<!--Served Clients-->
+<section class="row seo-features">
+    <div class="container">
+        <div class="row sectionTitle">
+            <h2 class="this-title">Ремонт и обслуживание любых марок автомобилей</h2>
+            <p>Выберите свою марку и сделайте заказ</p>
+        </div>
+        <div align="center" class="row">
+            <table class="table table-bordered" style="border: hidden">
+                <tbody>
+                {% for chunk in chunks(auto_marks, 6) %}
+                    <tr>
+                    {% for mark in auto_marks %}
+                        <td style="text-align: center; border: hidden"><img src="{{ url_for ('image', filename=mark.image)}}" alt=""><p>{{ mark.title }}</p></td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock%}

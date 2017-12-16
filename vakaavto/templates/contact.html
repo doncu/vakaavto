@@ -1,37 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-        <section class="row more-services" style="margin-bottom: -5%; margin-top: -3%">
-            <div class="container">
-                <div class="col-md-4">
-                    <h2 class="this-title">Задать вопрос :</h2>
-                    <form action="#" class="row free-analysis-form style2" method="get">
-  						<div class="input-group">
-  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/21.png')}}" alt=""></span>
-  							<input type="text" class="form-control" placeholder="Имя">
-  						</div>
-  						<div class="input-group">
-  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/22.png')}}" alt=""></span>
-  							<input type="email" class="form-control" placeholder="Email адрес">
-  						</div>
-  						<div class="input-group">
-  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/23.png')}}" alt=""></span>
-  							<input type="tel" class="form-control" placeholder="Номер телефона">
-  						</div>
-  						<div class="input-group">
-  							<span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/24.png')}}" alt=""></span>
-  							<textarea class="form-control" placeholder="Сообщение"></textarea>
-  						</div>
-  						<input type="submit" value="Отправить" class="btn btn-primary btn-sm">
-  					</form>
-                </div>
-                <br>
-                <div class="col-md-8 col-sm-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.685861405744!2d37.37471495167054!3d55.71183200252293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54e51cd4fbfb5%3A0x28623f1c40af75d3!2z0JLQsNC60LAt0JDQstGC0L4rLA!5e0!3m2!1sru!2sru!4v1511358502758" width="800" height="600" frameborder="0" style="border:0; width: 100%" allowfullscreen></iframe>
-                </div>
-
+    <section class="row more-services" style="margin-bottom: -5%; margin-top: -3%">
+        <div class="container">
+            <div class="col-md-4">
+                <h2 class="this-title">Задать вопрос :</h2>
+                <form action="#" class="row free-analysis-form style2" method="get">
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/21.png')}}" alt=""></span>
+                        <input type="text" class="form-control" placeholder="Имя">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/22.png')}}" alt=""></span>
+                        <input type="email" class="form-control" placeholder="Email адрес">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/23.png')}}" alt=""></span>
+                        <input type="tel" class="form-control" placeholder="Номер телефона">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/24.png')}}" alt=""></span>
+                        <textarea class="form-control" placeholder="Сообщение"></textarea>
+                    </div>
+                    <input type="submit" value="Отправить" class="btn btn-primary btn-sm">
+                </form>
             </div>
-        </section>
+            <br>
+            <div class="col-md-8 col-sm-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.685861405744!2d37.37471495167054!3d55.71183200252293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54e51cd4fbfb5%3A0x28623f1c40af75d3!2z0JLQsNC60LAt0JDQstGC0L4rLA!5e0!3m2!1sru!2sru!4v1511358502758" width="800" height="600" frameborder="0" style="border:0; width: 100%" allowfullscreen></iframe>
+            </div>
 
+        </div>
+    </section>
 
   	<!--Contact Infos-->
   	<section class="row contact-infos">
@@ -88,7 +87,4 @@
   			</div>
   		</div>
   	</section>
-
-  	<!--Map-->
-{#  	<div id="mapBox" class="row m0" data-lat="37.3818288" data-lon="-122.0636325" data-zoom="15" data-marker="images/map-marker.png"></div>#}
 {% endblock %}

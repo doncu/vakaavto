@@ -16,174 +16,34 @@
                 <div class="col-md-4">
                     <!-- tabs left -->
                     <ul class="nav nav-tabs tabs-left" style="margin-right: 0">
-                            <li class="active"><a href="#a" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&emsp; Диагностика</a></li>
-                            <li><a href="#b" data-toggle="tab"><span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>&emsp; Дополнительное оборудование</a></li>
-                            <li><a href="#c" data-toggle="tab"><span class="glyphicon glyphicon-check" aria-hidden="true"></span>&emsp; Защитные плёнки</a></li>
-                            <li><a href="#d" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&emsp; Кузовные работы</a></li>
-                            <li><a href="#e" data-toggle="tab"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&emsp; Масла, жидкости, фильтры</a></li>
-                            <li><a href="#f" data-toggle="tab"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>&emsp; Мойка, химчистка</a></li>
-                            <li><a href="#g" data-toggle="tab"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>&emsp; Подвеска</a></li>
-                            <li><a href="#h" data-toggle="tab"><span class="glyphicon glyphicon-collapse-up" aria-hidden="true"></span>&emsp; Полировка, уход</a></li>
-                            <li><a href="#i" data-toggle="tab"><span class="glyphicon glyphicon-import" aria-hidden="true"></span>&emsp; Сложный агрегатный ремонт</a></li>
-                            <li><a href="#j" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&emsp; Стёкла, фары</a></li>
-                            <li><a href="#k" data-toggle="tab"><span class="glyphicon glyphicon-compressed" aria-hidden="true"></span>&emsp; Техническое обслуживание</a></li>
-                            <li><a href="#l" data-toggle="tab"><span class="glyphicon glyphicon-sound-7-1" aria-hidden="true"></span>&emsp; Тонировка</a></li>
-                            <li><a href="#m" data-toggle="tab"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>&emsp; Тормозная система</a></li>
-                            <li><a href="#n" data-toggle="tab"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span>&emsp; Трансиссия</a></li>
-                            <li><a href="#o" data-toggle="tab"><span class="glyphicon glyphicon-ice-lolly" aria-hidden="true"></span>&emsp; Шиномонтаж</a></li>
-                            <li><a href="#p" data-toggle="tab"><span class="glyphicon glyphicon-object-align-left" aria-hidden="true"></span>&emsp; Электрика</a></li>
+                        {% for catalog in catalogs %}
+                            {% set catalog = catalog.obj %}
+                            <li class="{% if loop.first %}active{% endif %}">
+                                <a href="{{ catalog.title | transliterate }}" data-toggle="tab">
+                                    <span class="{% if catalog.glyphicon %}glyphicon glyphicon-{{ catalog.glyphicon }}{% endif %}" aria-hidden="true"></span>
+                                    {{ catalog.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-md-8">
                     <div class="tab-content">
-                        <div class="tab-pane active" id="a">
-                            <p>Диагностика АКПП</p>
-                            <p>Диагностика подвески</p>
-                            <p>Диагностика кондиционера</p>
-                            <p>Диагностика тормозной системы></p>
-                            <p>Компьютерная диагностика</p>
-                            <p>Комплексная диагностика</p>
-                        </div>
-                        <div class="tab-pane" id="b">
-                            <p>Замена катализатора</p>
-                            <p>Установка камеры заднего вида</p>
-                            <p>Установка парктроника</p>
-                            <p>Установка сигнализации</p>
-                        </div>
-                        <div class="tab-pane" id="c">
-                            <p>Защитные плёнки</p>
-                        </div>
-                        <div class="tab-pane" id="d">
-                            <p>Дефектовка</p>
-                            <p>Замена двери</p>
-                            <p>Замена крыла</p>
-                            <p>Замена крышки багажника</p>
-                            <p>Окраска накладки наружного зеркала</p>
-                            <p>Покраска двери</p>
-                            <p>Покраска крыла</p>
-                            <p>Покраска крышки багажника</p>
-                            <p>Полная покраска (наружная)</p>
-                            <p>Замена бампера</p>
-                            <p>Замена капота</p>
-                            <p>Замена крыши</p>
-                            <p>Замена порога</p>
-                            <p>Покраска бампера</p>
-                            <p>Покраска капота</p>
-                            <p>Покраска крыши</p>
-                            <p>Покраска порога</p>
-                        </div>
-                        <div class="tab-pane" id="e">
-                            <p>Замена антифриза</p>
-                            <p>Замена жидкости ГУР</p>
-                            <p>Замена салонного фильтра</p>
-                            <p>Замена топливного фильтра</p>
-                            <p>Замена масла</p>
-                            <p>Замена воздушного фильтра</p>
-                            <p>Замена масла АКПП</p>
-                            <p>Замена свечей</p>
-                            <p>Замена тормозной жидкости</p>
-                            <p>Замена масла МКПП</p>
-                        </div>
-                        <div class="tab-pane" id="f">
-                            <p>Комплексная мойка</p>
-                            <p>Устранение запахов</p>
-                            <p>Экспресс-мойка</p>
-                            <p>Стандартная мойка</p>
-                            <p>Химчистка салона</p>
-                        </div>
-                        <div class="tab-pane" id="g">
-                            <p>Замена амортизаторов</p>
-                            <p>Замена заднего рычага</p>
-                            <p>Замена переднего рычага</p>
-                            <p>Замена стоек стабилизатора</p>
-                            <p>Замена ступичного подшипника</p>
-                            <p>Проверка сход/развала</p>
-                            <p>Ремонт рулевой рейки</p>
-                            <p>Ремонт пневмостойки</p>
-                            <p>Замена втулок стабилизатора</p>
-                            <p>Замена насоса ГУР</p>
-                            <p>Замена рулевой тяги/наконечника</p>
-                            <p>Замена ступицы в сборе</p>
-                            <p>Замена шаровой опоры</p>
-                            <p>Развал-схождение</p>
-                            <p>Замена сайлентблока</p>
-                        </div>
-                        <div class="tab-pane" id="h">
-                            <p>Абразивная полировка кузова</p>
-                            <p>Дезинфекция кондиционера</p>
-                            <p>Полировка детали</p>
-                            <p>Полировка фар</p>
-                            <p>Антикоррозийная обработка днища</p>
-                            <p>Мягкая восстановительная полировка кузова</p>
-                            <p>Полировка кузова жидким стеклом</p>
-                            <p>Предпродажная подготовка</p>
-                        </div>
-                        <div class="tab-pane" id="i">
-                            <p>Ремонт двигателя</p>
-                            <p>Ремонт раздаточной коробки</p>
-                            <p>Ремонт коробки передач</p>
-                            <p>Сложный ремонт электрики</p>
-                        </div>
-                        <div class="tab-pane" id="j">
-                            <p>Замена бокового стекла</p>
-                            <p>Замена лобового стекла</p>
-                            <p>Замена бокового стекла с выездом</p>
-                            <p>Замена ксеноновых ламп</p>
-                            <p>Замена заднего стекла</p>
-                            <p>Ремонт стекла</p>
-                            <p>Бронирование фар</p>
-                            <p>Полировка фар</p>
-                        </div>
-                        <div class="tab-pane" id="k">
-                            <p>Базовое ТО</p>
-                            <p>Замена ремня ГРМ</p>
-                            <p>Полное ТО</p>
-                            <p>Замена помпы</p>
-                            <p>Замена цепи ГРМ</p>
-                            <p>Замена ремней и роликов вспомогательных механизмов</p>
-                        </div>
-                        <div class="tab-pane" id="l">
-                            <p>Атермальная пленка</p>
-                            <p>Тонировка автомобиля</p>
-                            <p>Снятие тонировочной пленки</p>
-                        </div>
-                        <div class="tab-pane" id="m">
-                            <p>Замена задних тормозных барабанов</p>
-                            <p>Замена тормозных колодок</p>
-                            <p>Регулировка стояночного тормоза</p>
-                            <p>Замена блока ABS, EBD, ESP</p>
-                            <p>Замена тормозных дисков</p>
-                            <p>Замена тормозных шлангов</p>
-                            <p>Регулировка тросов стояночного тормоза центральным натяжением</p>
-                            <p>Замена колодок стояночного тормоза</p>
-                        </div>
-                        <div class="tab-pane" id="n">
-                            <p>Адаптация механизма выжима сцепления роботизированной трансмиссии</p>
-                            <p>Замена пыльника шруса</p>
-                            <p>Ремонт коробки передач</p>
-                            <p>Замена ШРУСа</p>
-                            <p>Замена сцепления</p>
-                        </div>
-                        <div class="tab-pane" id="o">
-                            <p>Комплексный шиномонтаж</p>
-                            <p>Съем-установка колес</p>
-                        </div>
-                        <div class="tab-pane" id="p">
-                            <p>Замена генератора</p>
-                            <p>Замена датчика положения коленвала</p>
-                            <p>Замена стартера</p>
-                            <p>Ремонт стартера</p>
-                            <p>Замена датчика ABS</p>
-                            <p>Замена расходомера</p>
-                            <p>Ремонт генератора</p>
-                        </div>
+                        {% for catalog in services %}
+                            {% if catalog.services %}
+                                <div class="tab-pane {% if loop.first %}active{% endif %}" id="{{ service.title | transliterate }}">
+                                    {% for service in catalog.services %}
+                                        <p>Диагностика АКПП</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     <!-- /tabs -->
                 </div>
             </div>
         <!-- /row -->
-    </div>
-
-    <hr>
+        </div>
+        <hr>
     </section>
 {% endblock %}

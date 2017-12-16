@@ -24,13 +24,13 @@ def contacts():
 
 
 def services():
-    parent_objects = db.session.query(service.Service).filter(service.Service.parent_id == None).all()
-    child_objects = db.session.query(service.Service).filter(service.Service.parent_id != None).all()
+    catalogs = db.session.query(service.Service).filter(service.Service.parent_id == None).all()
+    service_objects = db.session.query(service.Service).filter(service.Service.parent_id != None).all()
     childs = collections.defaultdict(list)
-    for obj in child_objects:
+    for obj in service_objects:
         childs[obj.parent_id].append(obj)
-    result = [dict(obj=obj, childs=childs.get(obj.id, [])) for obj in parent_objects]
-    return render_template('services.html', services=result)
+    catalogs = [dict(obj=obj, services=childs.get(obj.id, [])) for obj in catalogs]
+    return render_template('services.html', catalogs=catalogs)
 
 
 def calc():
