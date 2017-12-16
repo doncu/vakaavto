@@ -253,12 +253,11 @@
         {% for chunk in chunks(services, 3) %}
             <div class="service-blocks row">
                 {% for service in chunk %}
-                    {% set alias = service.title | transliterate %}
                 <div class="col-sm-4 related-case2">
                     <div class="row inner">
-                        <a href="{{ url_for('services', alias=alias) }}">
+                        <a href="{{ url_for('services', alias=service.alias) }}">
                             <h3 class="this-title">{{ service.title }}</h3>
-                            <img src="{{ url_for ('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
+                            <img src="{{ url_for('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
                         </a>
                     </div>
                 </div>
@@ -282,7 +281,7 @@
                 {% for chunk in chunks(auto_marks, 6) %}
                     <tr>
                     {% for mark in auto_marks %}
-                        <td style="text-align: center; border: hidden"><img src="{{ url_for ('image', filename=mark.image)}}" alt=""><p>{{ mark.title }}</p></td>
+                        <td style="text-align: center; border: hidden"><img src="{{ url_for('image', filename=mark.image)}}" alt=""><p>{{ mark.title }}</p></td>
                     {% endfor %}
                     </tr>
                 {% endfor %}

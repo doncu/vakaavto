@@ -9,6 +9,7 @@ from wtforms import validators
 from vakaavto import db
 from vakaavto.app import app
 from vakaavto.app import admin
+from vakaavto.common import utils
 from vakaavto.admin import fields
 from vakaavto.models import auto
 from vakaavto.models import howto
@@ -37,7 +38,7 @@ class AutoMarks(AdminModelView):
     column_labels = dict(title='Заголовок')
 
     form_columns = ('title', 'image', )
-    form_args = dict(title=dict(label='Название марки'))
+    form_args = dict(title=dict(label='Название марки', validators=[validators.DataRequired()]))
     form_overrides = dict(title=wtforms.StringField)
     form_extra_fields = dict(
         image=upload.ImageUploadField(
@@ -60,13 +61,22 @@ class Services(AdminModelView):
 
     form_columns = ('title', 'glyphicon', 'image', )
     form_args = dict(
-        title=dict(label='Название сервиса'),
-        glyphicon=dict(label='Название иконочки'),
+        title=dict(label='Название сервиса', validators=[validators.DataRequired()]),
+        glyphicon=dict(label='Название иконочки', validators=[validators.DataRequired()]),
     )
     form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField)
     form_extra_fields = dict(
-        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
+        image=upload.ImageUploadField(
+            label='Картинка',
+            base_path=app.config['IMG_PATH'],
+            endpoint='image',
+            validators=[validators.DataRequired()]
+        )
     )
+
+    def on_model_change(self, form, model, is_created):
+        super().on_model_change(form, model, is_created)
+        model.alias = utils.transliterate(model.title)
 
     def get_query(self):
         query = super().get_query()
@@ -85,15 +95,19 @@ class Catalog(AdminModelView):
 
     form_columns = ('title', 'parent', 'glyphicon', 'image', 'text')
     form_args = dict(
-        title=dict(label='Название сервиса'),
-        parent=dict(label='Каталог', validators=[validators.Required]),
-        glyphicon=dict(label='Название иконочки'),
-        text=dict(label='Описание сервиса')
+        title=dict(label='Название сервиса', validators=[validators.DataRequired()]),
+        parent=dict(label='Каталог', validators=[validators.DataRequired()]),
+        glyphicon=dict(label='Название иконочки', validators=[validators.DataRequired()]),
+        text=dict(label='Описание сервиса', validators=[validators.DataRequired()])
     )
     form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField, text=fields.CKTextAreaField)
     form_extra_fields = dict(
         image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
     )
+
+    def on_model_change(self, form, model, is_created):
+        super().on_model_change(form, model, is_created)
+        model.alias = utils.transliterate(model.title)
 
     def get_query(self):
         query = super().get_query()
@@ -110,4 +124,8 @@ class HowTo(AdminModelView):
     column_list = ('title', )
     column_labels = dict(title='Заголовок')
 
+    form_args = dict(
+        title=dict(label='Заголовок', validators=[validators.DataRequired()]),
+        text=dict(label='Текст', validators=[validators.DataRequired()])
+    )
     form_overrides = dict(title=wtforms.StringField, text=fields.CKTextAreaField)

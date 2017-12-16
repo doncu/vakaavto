@@ -23,9 +23,8 @@
                     <ul class="nav nav-tabs tabs-left" style="margin-right: 0">
                         {% for catalog in catalogs %}
                             {% set catalog = catalog.obj %}
-                            {% set catalog_alias = catalog.title | transliterate %}
-                            <li class="{% if not alias and loop.first or catalog_alias == alias %}active{% endif %}">
-                                <a href="{{ url_for('services', alias=catalog_alias) }}" data-alias="{{ catalog_alias }}">
+                            <li class="{% if not alias and loop.first or catalog.alias == alias %}active{% endif %}">
+                                <a href="{{ url_for('services', alias=catalog.alias) }}" data-alias="{{ catalog.alias }}">
                                     <span class="{% if catalog.glyphicon %}glyphicon glyphicon-{{ catalog.glyphicon }}{% endif %}" aria-hidden="true"></span>
                                     &emsp;{{ catalog.title }}
                                 </a>
@@ -35,15 +34,13 @@
                 </div>
                 <div class="col-md-8">
                     <div class="tab-content">
-                        {% for catalog in services %}
-                            {% set catalog_alias = catalog.title | transliterate %}
-                            {% if catalog.services %}
-                                <div class="tab-pane {% if not alias and loop.first or catalog_alias == alias %}active{% endif %}" id="{{ service.title | transliterate }}">
-                                    {% for service in catalog.services %}
-                                        <p>{{ service.title }}</p>
-                                    {% endfor %}
+                        {% for catalog in catalogs %}
+                            {% set obj = catalog.obj %}
+                            <div class="tab-pane {% if not alias and loop.first or obj.alias == alias %}active{% endif %}" id="{{ obj.alias }}">
+                                {% for service in catalog.services %}
+                                    <p><a href="{{ url_for('connect', catalog_alias=obj.alias, service_alias=service.alias) }}">{{ service.title }}</a></p>
+                                {% endfor %}
                                 </div>
-                            {% endif %}
                         {% endfor %}
                     </div>
                     <!-- /tabs -->

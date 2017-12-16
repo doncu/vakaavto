@@ -13,9 +13,9 @@ app.add_url_rule('/ajax/send/email/', methods=['POST'], view_func=ajax.send_emai
 app.add_url_rule('/', view_func=pages.index)
 app.add_url_rule('/help/', view_func=pages.help)
 app.add_url_rule('/contacts/', view_func=pages.contacts)
-app.add_url_rule('/services/', view_func=pages.services)
-app.add_url_rule('/services/<alias>/', view_func=pages.services)
-app.add_url_rule('/calc/', view_func=pages.calc)
+app.add_url_rule('/uslugi/', view_func=pages.services)
+app.add_url_rule('/uslugi/<alias>/', view_func=pages.services)
+app.add_url_rule('/uslugi/<catalog_alias>/<service_alias>/', view_func=pages.connect)
 
 app.add_url_rule('/sitemaps.xml', view_func=sitemap.sitemap_index)
 

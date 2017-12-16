@@ -8,6 +8,7 @@ class Service(db.Base):
     __tablename__ = 'vakaavto_services'
 
     id = sa.Column(sa.Integer, primary_key=True)
+    alias = sa.Column(sa.Text, index=True, unique=True)
     title = sa.Column(sa.Text, index=True)
     text = sa.Column(sa.Text)
 

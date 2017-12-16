@@ -1,5 +1,6 @@
 import collections
 
+from flask import abort
 from flask import render_template
 
 from vakaavto import db
@@ -33,5 +34,9 @@ def services(alias=None):
     return render_template('services.html', alias=alias, catalogs=catalogs)
 
 
-def calc():
-    return render_template('calc.html')
+def connect(catalog_alias, service_alias):
+    catalog = db.session.query(service.Service).filter(service.Service.alias == catalog_alias).first()
+    obj = db.session.query(service.Service).filter(service.Service.alias == service_alias).first()
+    if not catalog or not obj:
+        return abort(404)
+    return render_template('connect.html', catalog=catalog, service=obj)
