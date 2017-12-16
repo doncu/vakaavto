@@ -1,12 +1,11 @@
-import os
 import datetime as dt
+import os
 
 from flask import Flask
 from flask_admin import Admin
 
-from vakaavto import utils
 from vakaavto import settings
-
+from vakaavto.common import utils
 
 conf = settings.SETTINGS_MAP[os.environ['SETTINGS']]
 app = Flask(

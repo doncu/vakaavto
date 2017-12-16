@@ -65,11 +65,7 @@ class Services(AdminModelView):
     )
     form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField)
     form_extra_fields = dict(
-        image=upload.ImageUploadField(
-            label='Картинка',
-            base_path=os.path.join(app.config['IMG_PATH'], 'services'),
-            endpoint='image'
-        )
+        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
     )
 
     def get_query(self):
@@ -96,11 +92,7 @@ class Catalog(AdminModelView):
     )
     form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField, text=fields.CKTextAreaField)
     form_extra_fields = dict(
-        image=upload.ImageUploadField(
-            label='Картинка',
-            base_path=os.path.join(app.config['IMG_PATH'], 'services'),
-            endpoint='image'
-        )
+        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
     )
 
     def get_query(self):

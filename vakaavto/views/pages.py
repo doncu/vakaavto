@@ -23,7 +23,7 @@ def contacts():
     return render_template('contact.html')
 
 
-def services(alias):
+def services(alias=None):
     catalogs = db.session.query(service.Service).filter(service.Service.parent_id == None).all()
     service_objects = db.session.query(service.Service).filter(service.Service.parent_id != None).all()
     childs = collections.defaultdict(list)

@@ -8,6 +8,7 @@ from covador.flask import json_body
 from covador.flask import query_string
 
 from vakaavto import db
+from vakaavto.common import email
 from vakaavto.models import auto
 
 
@@ -20,10 +21,10 @@ def search_mark(query):
     return jsonify(result=[dict(id=obj.id, title=obj.title) for obj in objects])
 
 
-@json_body(service=opt(int), mark=item(int), model=item(str), tel=item(str) | base64.decode)
-def send_email(mark, model, tel):
+@json_body(service=opt(int), mark=item(int), model=item(str), tel=item(str))
+def send_email(**kwargs):
     try:
-        pass
+        email.send('', kwargs)
     except Exception:
         logger.exception('Send mail error')
     return jsonify(result='ok')
