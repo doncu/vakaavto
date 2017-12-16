@@ -18,7 +18,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     {% for obj in objects %}
-                        <li role="presentation" class="{% if loop.index0 == 0 %}active{% endif%}">
+                        <li role="presentation" class="{% if loop.first %}active{% endif%}">
                             <a href="#{{ loop.index }}" aria-controls="problem-with-car" role="tab" data-toggle="tab">
                                 Решим проблемы с автомобилем
                             </a>
@@ -28,7 +28,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     {% for obj in objects %}
-                        <div role="tabpanel" class="tab-pane active" id="{{ loop.index }}">
+                        <div role="tabpanel" class="tab-pane {% if loop.first %}active{% endif %}" id="{{ loop.index }}">
                             {{ obj.text | safe }}
                         </div>
                     {% endfor %}
