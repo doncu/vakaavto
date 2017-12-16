@@ -31,21 +31,37 @@ class AutoMarks(AdminModelView):
     __model__ = auto.AutoMark
 
     column_list = ('title', )
+    column_labels = dict(title='Заголовок')
 
     form_columns = ('title', 'image', )
+    form_args = dict(title=dict(label='Название марки'))
     form_overrides = dict(title=wtforms.StringField)
-    form_extra_fields = dict(image=upload.ImageUploadField(base_path=app.config['IMG_PATH'], endpoint='image'))
+    form_extra_fields = dict(
+        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
+    )
 
 
 @register(None, 'Сервисы', '/admin/services/', 'admin.services')
 class Services(AdminModelView):
     __model__ = service.Service
 
-    column_list = ('title', )
+    create_template = 'admin/create.html'
+    edit_template = 'admin/edit.html'
 
-    form_columns = ('title', 'parent', 'glyphicon', 'big_image', )
-    form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField)
-    form_extra_fields = dict(big_image=upload.ImageUploadField(base_path=app.config['IMG_PATH'], endpoint='image'))
+    column_list = ('title', )
+    column_labels = dict(title='Заголовок')
+
+    form_columns = ('title', 'parent', 'glyphicon', 'image', 'text')
+    form_args = dict(
+        title=dict(label='Название сервиса'),
+        parent=dict(label='Каталог'),
+        glyphicon=dict(label='Название иконочки'),
+        text=dict(label='Описание сервиса')
+    )
+    form_overrides = dict(title=wtforms.StringField, glyphicon=wtforms.StringField, text=fields.CKTextAreaField)
+    form_extra_fields = dict(
+        image=upload.ImageUploadField(label='Картинка', base_path=app.config['IMG_PATH'], endpoint='image')
+    )
 
 
 @register(None, 'Как это работает', '/admin/howto/', 'admin.howto')
@@ -55,7 +71,7 @@ class HowTo(AdminModelView):
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'
 
-
     column_list = ('title', )
+    column_labels = dict(title='Заголовок')
 
     form_overrides = dict(title=wtforms.StringField, text=fields.CKTextAreaField)
