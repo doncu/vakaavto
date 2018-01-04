@@ -3,6 +3,9 @@
 *.pyc
 
 img/
+dist/
+build/
+Vaka_Avto.egg-info
 vakaavto.db
 __pycache__
 

@@ -1,3 +1,5 @@
+import glob
+
 from pip.req import parse_requirements
 from setuptools import setup
 from setuptools import find_packages
@@ -14,10 +16,8 @@ setup(
     python_requires='>=3.4',
     packages=find_packages(),
     include_package_data=True,
-    package_data={
-        'vakaavto': ['templates/*.html', 'templates/sitemaps/*.xml']
-    },
     data_files=(
+        ('static', glob.glob('static/**/*', recursive=True) + ['static/robots.txt']),
         ('configs', ['etc/uwsgi.ini', 'etc/supervisord.conf']),
     ),
     install_requires=[str(ir.req) for ir in parse_requirements('requirements.txt', session='hack')]
