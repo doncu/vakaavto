@@ -25,7 +25,7 @@ class LocalSettings(BaseSettings):
 
 
 class ProdSettings(BaseSettings):
-    pass
+    STATIC_URL_PATH = '/static'
 
 
 SETTINGS_MAP = {
