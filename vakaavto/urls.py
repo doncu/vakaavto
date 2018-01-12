@@ -7,7 +7,6 @@ from vakaavto.views import helpers
 from vakaavto.views import sitemap
 
 
-app.add_url_rule('/ajax/search/mark/', methods=['POST'], view_func=ajax.search_mark)
 app.add_url_rule('/ajax/send/email/', methods=['POST'], view_func=ajax.send_email)
 
 app.add_url_rule('/', view_func=pages.index)

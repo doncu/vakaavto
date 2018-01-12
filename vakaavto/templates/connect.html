@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/magnific-popup/magnific-popup.css')}}">
     <!-- RS5.0 Main Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/settings.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/bootstrap-select/bootstrap-select.min.css')}}">
 
 	<!-- RS5.0 Layers and Navigation Styles -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/layers.css')}}">
@@ -93,15 +94,19 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12">
-								<form id="login-form" action="#" method="post" role="form" style="display: block;">
+								<form id="login-form" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="Марка" id="marka" tabindex="1" class="form-control" placeholder="Марка" value="">
+                                        <select class="selectpicker form-control" data-style="btn-default" name="mark" title="Марка" data-live-search="true">
+                                            {% for mark in auto_marks %}
+                                                <option value="{{ mark.id }}">{{ mark.title }}</option>
+                                            {% endfor %}
+                                        </select>
 									</div>
 									<div class="form-group">
-										<input type="text" name="Модель" id="model" tabindex="2" class="form-control" placeholder="Модель">
+										<input type="text" name="model" class="form-control" placeholder="Модель">
 									</div>
                                     <div class="form-group">
-										<input type="text" name="Моб. телефон" id="number" tabindex="2" class="form-control" placeholder="Моб. телефон">
+										<input type="text" name="tel" class="form-control" placeholder="Моб. телефон">
 									</div>
 									<div class="form-group">
 										<div class="row">
@@ -210,5 +215,22 @@
     <script src="{{ url_for ('static', filename='js/theme.js')}}"></script>
     <!--Login Form Script-->
     <script src="{{ url_for ('static', filename='js/loginform.js')}}"></script>
+    <script src="{{ url_for ('static', filename='vendors/bootstrap-select/bootstrap-select.js')}}"></script>
+
+    <script>
+        $(function () {
+            $('#login-form').submit(function (event) {
+                event.preventDefault();
+
+                var data = $(this).serializeArray();
+                var result = {service: '{{ service.id }}'};
+                for (var i = 0; i < data.length; i++)
+                    result[data[i]['name']] = data[i]['value'];
+                $.post('{{ url_for('send_email') }}', result, function (response) {
+
+                });
+            });
+        })
+    </script>
 </body>
 </html>

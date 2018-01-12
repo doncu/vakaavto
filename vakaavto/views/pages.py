@@ -37,6 +37,7 @@ def services(alias=None):
 def connect(catalog_alias, service_alias):
     catalog = db.session.query(service.Service).filter(service.Service.alias == catalog_alias).first()
     obj = db.session.query(service.Service).filter(service.Service.alias == service_alias).first()
+    auto_marks = db.session.query(auto.AutoMark).all()
     if not catalog or not obj:
         return abort(404)
-    return render_template('connect.html', catalog=catalog, service=obj)
+    return render_template('connect.html', catalog=catalog, service=obj, auto_marks=auto_marks)

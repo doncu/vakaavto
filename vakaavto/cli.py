@@ -6,17 +6,20 @@ import click
 from flask.cli import FlaskGroup
 
 
-@click.group(cls=FlaskGroup)
+def create_app(*args):
+    os.environ['SETTINGS'] = 'local'
+    from vakaavto.app import app
+    return app
+
+
+@click.group(cls=FlaskGroup, create_app=create_app)
 @click.option('--debug/--no-debug', default=True, help='Enable/disable debug mode')
 def cli(debug):
-    os.environ['SETTINGS'] = 'local'
-    os.environ['FLASK_APP'] = 'vakaavto/app.py'
     os.environ['FLASK_DEBUG'] = '1' if debug else '0'
 
 
-@cli.command(with_appcontext=False)
+@cli.command()
 def initdb():
-    from vakaavto import app
     from vakaavto import db
     db.import_models()
 
