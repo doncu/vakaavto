@@ -286,7 +286,7 @@
                 <tbody>
                 {% for chunk in chunks(auto_marks, 6) %}
                     <tr>
-                    {% for mark in auto_marks %}
+                    {% for mark in chunk %}
                         <td style="text-align: center; border: hidden"><img src="{{ url_for('image', filename=mark.image or '')}}" alt=""><p>{{ mark.title }}</p></td>
                     {% endfor %}
                     </tr>
