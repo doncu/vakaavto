@@ -25,7 +25,7 @@
                     {% for obj in objects %}
                         <li role="presentation" class="{% if loop.first %}active{% endif%}">
                             <a href="#{{ loop.index }}" aria-controls="problem-with-car" role="tab" data-toggle="tab">
-                                Решим проблемы с автомобилем
+                                {{ obj.title }}
                             </a>
                         </li>
                     {% endfor %}

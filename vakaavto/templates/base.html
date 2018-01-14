@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/magnific-popup/magnific-popup.css')}}">
     <!-- RS5.0 Main Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/settings.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='vendors/bootstrap-select/bootstrap-select.min.css')}}">
 
 	<!-- RS5.0 Layers and Navigation Styles -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='vendors/revolution/css/layers.css')}}">
@@ -95,6 +96,11 @@
                                     <label for="model">Модель Авто</label>
                                       <input type="text" class="form-control"
                                       id="model" placeholder="Укажите модель авто"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="model">Вид работ</label>
+                                      <input type="text" class="form-control"
+                                      id="model" placeholder="Укажите желаемую услугу"/>
                                   </div>
                                   <div class="form-group">
                                     <label for="phone_number">Номер телефона</label>
@@ -194,10 +200,13 @@
     <script src="{{ url_for ('static', filename='vendors/isotope/isotope.min.js')}}"></script>
     <!--Theme Script-->
     <script src="{{ url_for ('static', filename='js/theme.js')}}"></script>
-        <!--Contact Form-->
+    <!--Contact Form-->
     <script src="{{ url_for ('static', filename='js/jquery.form.js')}}"></script>
     <script src="{{ url_for ('static', filename='js/jquery.validate.min.js')}}"></script>
     <script src="{{ url_for ('static', filename='js/contact.js')}}"></script>
+    <!--Login Form Script-->
+    <script src="{{ url_for ('static', filename='js/loginform.js')}}"></script>
+    <script src="{{ url_for ('static', filename='vendors/bootstrap-select/bootstrap-select.js')}}"></script>
     {% endblock %}
 
 
