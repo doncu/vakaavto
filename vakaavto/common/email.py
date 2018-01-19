@@ -1,28 +1,18 @@
 import smtplib
 from email.mime import text
-import functools
 
 from flask import render_template_string
 
-try:
-    import uwsgi
-    from uwsgidecorators import mule
-except ImportError:
-    def mule(func):
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs):
-            func(*args, **kwargs)
-        return wrapper
 
+def send(host, log_pass, subject, from_, to, template, **kwargs):
+    smtp = smtplib.SMTP_SSL(host=host, timeout=1)
+    smtp.login(*log_pass)
 
-@mule
-def send(template, context):
-    email_string = render_template_string(template, **context)
+    email_string = render_template_string(template, **kwargs)
     msg = text.MIMEText(email_string)
-    msg['Subject'] = 'Новое обращение с сайта'
-    msg['From'] = ''
-    msg['To'] = ''
+    msg['Subject'] = subject
+    msg['From'] = from_
+    msg['To'] = to
 
-    smtp = smtplib.SMTP('localhost')
     smtp.send_message(msg)
     smtp.quit()
