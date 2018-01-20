@@ -19,12 +19,12 @@ def get_recursive_files(src, dst):
 
 
 setuptools.setup(
-    name='Vaka-Avto',
+    name='vakaavto',
     version='0.0.2',
     author="Ivan Krivosheev, Semen Doncu",
     author_email="py.krivosheev@gmail.com, doncusemen@gmail.com",
     description="Site for Vaka-Avto",
-    url='http://vaka-avto.ru/',
+    url='http://vakaavto.ru/',
     zip_safe=False,
     python_requires='>=3.4',
     packages=setuptools.find_packages(),

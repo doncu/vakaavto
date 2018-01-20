@@ -24,7 +24,7 @@
                         {% for catalog in catalogs %}
                             {% set catalog = catalog.obj %}
                             <li class="{% if not alias and loop.first or catalog.alias == alias %}active{% endif %}">
-                                <a href="{{ url_for('services', alias=catalog.alias) }}" data-alias="{{ catalog.alias }}">
+                                <a href="{{ url_for('catalog', alias=catalog.alias) }}" data-alias="{{ catalog.alias }}">
                                     <span class="{% if catalog.glyphicon %}glyphicon glyphicon-{{ catalog.glyphicon }}{% endif %}" aria-hidden="true"></span>
                                     &emsp;{{ catalog.title }}
                                 </a>
@@ -38,7 +38,7 @@
                             {% set obj = catalog.obj %}
                             <div class="tab-pane {% if not alias and loop.first or obj.alias == alias %}active{% endif %}" id="{{ obj.alias }}">
                                 {% for service in catalog.services %}
-                                    <p><a href="{{ url_for('connect', catalog_alias=obj.alias, service_alias=service.alias) }}">{{ service.title }}</a></p>
+                                    <p><a href="{{ url_for('service', catalog_alias=obj.alias, service_alias=service.alias) }}">{{ service.title }}</a></p>
                                 {% endfor %}
                                 </div>
                         {% endfor %}

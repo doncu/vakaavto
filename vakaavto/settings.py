@@ -2,7 +2,7 @@ import os
 
 
 class BaseSettings:
-    DOMAIN = 'vaka-avto.ru'
+    DOMAIN = 'vakaavto.ru'
 
     SECRET_KEY = 'adsttasdasdoasd0as98d0am4m35048m90mcw4fum3h4650439875n4354'
 

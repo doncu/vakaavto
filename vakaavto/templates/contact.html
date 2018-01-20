@@ -9,24 +9,24 @@
         <div class="container">
             <div class="col-md-4">
                 <h2 class="this-title">Задать вопрос :</h2>
-                <form action="#" class="row free-analysis-form style2" method="get">
+                <form id="contact-form" class="row free-analysis-form style2">
                     <div class="input-group">
                         <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/21.png')}}" alt=""></span>
-                        <input type="text" class="form-control" placeholder="Имя">
+                        <input type="text" name="name" class="form-control" placeholder="Имя">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/22.png')}}" alt=""></span>
-                        <input type="email" class="form-control" placeholder="Email адрес">
+                        <input type="email" name="email" class="form-control" placeholder="Email адрес">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/23.png')}}" alt=""></span>
-                        <input type="tel" class="form-control" placeholder="Номер телефона">
+                        <input type="tel" name="tel" class="form-control" placeholder="Номер телефона" required>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><img src="{{ url_for ('static', filename='images/icons/service/24.png')}}" alt=""></span>
-                        <textarea class="form-control" placeholder="Сообщение"></textarea>
+                        <textarea name="text" class="form-control" placeholder="Сообщение"></textarea>
                     </div>
-                    <input type="submit" value="Отправить" class="btn btn-primary btn-sm">
+                  <button type="submit" class="btn btn-primary btn-sm">Отправить</button>
                 </form>
             </div>
             <br>
@@ -98,4 +98,9 @@
     {{ super() }}
     <!--Google Maps -->
     <script src="{{ url_for ('static', filename='js/gmaps.min.js')}}"></script>
+    <script>
+      $(function () {
+        email_send('contact-form', {});
+      })
+    </script>
 {% endblock %}

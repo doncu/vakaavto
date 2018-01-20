@@ -4,6 +4,28 @@ from sqlalchemy import orm
 from vakaavto import db
 
 
+class AutoMark(db.Base):
+    __tablename__ = 'vakaavto_auto_mark'
+
+    id = sa.Column(sa.Integer, primary_key=True)
+    title = sa.Column(sa.Text, index=True)
+    image = sa.Column(sa.Text)
+
+    def __str__(self):
+        return self.title
+
+
+class HowTo(db.Base):
+    __tablename__ = 'vakaavto_howto'
+
+    id = sa.Column(sa.Integer, primary_key=True)
+    title = sa.Column(sa.Text, index=True)
+    text = sa.Column(sa.Text)
+
+    def __str__(self):
+        return self.title
+
+
 class Service(db.Base):
     __tablename__ = 'vakaavto_services'
 

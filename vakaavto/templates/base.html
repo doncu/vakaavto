@@ -46,7 +46,7 @@
     <div class="container">
       <div class="welcome-message">Добро пожаловать в Вака-Авто</div>
       <ul class="nav top-nav">
-        <li class="email"><a href="mailto:info@vaka-avto.ru"><i class="fa fa-envelope-o"></i>info@vaka-avto.ru</a></li>
+        <li class="email"><a href="mailto:info@vakaavto.ru"><i class="fa fa-envelope-o"></i>info@vakaavto.ru</a></li>
         <li class="tel"><a href="tel:+74956485856"><i class="fa fa-phone"></i>+7 (495) 648-58-56</a></li>
       </ul>
     </div>
@@ -89,48 +89,36 @@
               <!-- Modal Body -->
               <div class="modal-body">
 
-                <form role="form">
+                <form id="modal-contact-form" role="form">
                   <div class="form-group">
                     <label for="mark">Марка Авто</label>
-                    <input type="text" class="form-control"
-                           id="mark" placeholder="Укажите марку авто"/>
+                    <input type="text" class="form-control" name="mark" placeholder="Укажите марку авто" required/>
                   </div>
                   <div class="form-group">
                     <label for="model">Модель Авто</label>
-                    <input type="text" class="form-control"
-                           id="model" placeholder="Укажите модель авто"/>
+                    <input type="text" class="form-control" name="model" placeholder="Укажите модель авто"/>
                   </div>
                   <div class="form-group">
                     <label for="model">Вид работ</label>
-                    <input type="text" class="form-control"
-                           id="model" placeholder="Укажите желаемую услугу"/>
+                    <input type="text" class="form-control" name="service" placeholder="Укажите желаемую услугу" required/>
                   </div>
                   <div class="form-group">
                     <label for="phone_number">Номер телефона</label>
-                    <input type="text" class="form-control"
-                           id="phone_number" placeholder="Укажите ваш контактный номер"/>
+                    <input type="text" class="form-control" name="tel" placeholder="Укажите ваш контактный номер" required/>
                   </div>
-                  {#                                  <button type="submit" class="btn btn-default">Submit</button>#}
                 </form>
-
-
               </div>
-
               <!-- Modal Footer -->
               <div class="modal-footer">
-                <button type="submit" class="form-control btn btn-login center-block" data-dismiss="modal"
-                        style="max-width: 30%">Отправить
-                </button>
+                <button type="submit" class="form-control btn btn-login center-block" data-dismiss="modal" style="max-width: 30%">Отправить</button>
               </div>
             </div>
           </div>
         </div>
-
-
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/">Главная</a></li>
           <li><a href="{{ url_for('help') }}">Как это работает</a></li>
-          <li><a href="{{ url_for('services') }}">Услуги</a></li>
+          <li><a href="{{ url_for('catalog') }}">Услуги</a></li>
           <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
         </ul>
       </div>
@@ -151,15 +139,15 @@
             <h3 class="footer-title">Обратная связь</h3>
             <ul class="nav">
               <li class="tel"><a href="tel:+74956485856"><i class="fa fa-phone"></i>+7 (495) 648-58-56</a></li>
-              <li class="email"><a href="mailto:info@vaka-avto.ru"><i class="fa fa-envelope-o"></i>info@vaka-avto.ru</a>
+              <li class="email"><a href="mailto:info@vakaavto.ru"><i class="fa fa-envelope-o"></i>info@vakaavto.ru</a>
               </li>
             </ul>
           </div>
           <div class="footer-newsletter row footer-widget right-box">
             <h3 class="footer-title">Позвоните мне</h3>
-            <form class="form-inline">
-              <input type="text" class="form-control" placeholder="Имя">
-              <input type="text" class="form-control" placeholder="Номер">
+            <form id="footer-contact-form" class="form-inline">
+              <input type="text" name="name" class="form-control" placeholder="Имя" required>
+              <input type="text" name="tel" class="form-control" placeholder="Номер" required>
               <button type="submit" class="btn btn-primary">Отправить</button>
             </form>
           </div>
@@ -173,7 +161,7 @@
             <p>Можайское шоссе, вл. 30</p>
           </div>
           <div class="copyright-row left-box footer-widget row">
-            © {{ now().year }} Vaka-Avto. Все права защищены. <a href="http://vaka-avto.ru">vaka-avto.ru</a>
+            © {{ now().year }} Vaka-Avto. Все права защищены. <a href="http://vakaavto.ru">vakaavto.ru</a>
           </div>
         </div>
       </div>
@@ -202,6 +190,13 @@
   <script src="{{ url_for ('static', filename='js/jquery.validate.min.js') }}"></script>
   <!--Login Form Script-->
   <script src="{{ url_for ('static', filename='vendors/bootstrap-select/bootstrap-select.js') }}"></script>
+  <script src="{{ url_for ('static', filename='js/common.js') }}"></script>
+  <script>
+    $(function () {
+      email_send('#footer-contact-form', {});
+      email_send('#modal-contact-form', {});
+    })
+  </script>
 {% endblock %}
 
 

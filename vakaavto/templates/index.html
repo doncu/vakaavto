@@ -261,7 +261,7 @@
                 {% for service in chunk %}
                 <div class="col-sm-4 related-case2">
                     <div class="row inner">
-                        <a href="{{ url_for('services', alias=service.alias) }}">
+                        <a href="{{ url_for('catalog', alias=service.alias) }}">
                             <h3 class="this-title">{{ service.title }}</h3>
                             <img src="{{ url_for('image', filename=service.image) }}" class="img-responsive" style="display: inline-block; height: auto; max-width: 100%;">
                         </a>

@@ -11,9 +11,7 @@ from vakaavto.app import app
 from vakaavto.app import admin
 from vakaavto.common import utils
 from vakaavto.admin import fields
-from vakaavto.models import auto
-from vakaavto.models import howto
-from vakaavto.models import service
+from vakaavto import models
 
 
 class AdminModelView(sqla.ModelView):
@@ -32,7 +30,7 @@ def register(category=None, name=None, url=None, endpoint=None, **kwargs):
 
 @register(None, 'Марки авто', '/admin/automarks/', 'admin.automarks')
 class AutoMarks(AdminModelView):
-    __model__ = auto.AutoMark
+    __model__ = models.AutoMark
 
     column_list = ('title', )
     column_labels = dict(title='Заголовок')
@@ -51,7 +49,7 @@ class AutoMarks(AdminModelView):
 
 @register('Cервисы', 'Каталог', '/admin/catalog/', 'admin.catalog')
 class Services(AdminModelView):
-    __model__ = service.Service
+    __model__ = models.Service
 
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'
@@ -85,7 +83,7 @@ class Services(AdminModelView):
 
 @register('Cервисы', 'Сервисы', '/admin/services/', 'admin.services')
 class Catalog(AdminModelView):
-    __model__ = service.Service
+    __model__ = models.Service
 
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'
@@ -116,7 +114,7 @@ class Catalog(AdminModelView):
 
 @register(None, 'Как это работает', '/admin/howto/', 'admin.howto')
 class HowTo(AdminModelView):
-    __model__ = howto.HowTo
+    __model__ = models.HowTo
 
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'

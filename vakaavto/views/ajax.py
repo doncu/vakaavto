@@ -11,11 +11,18 @@ from vakaavto.common import email
 logger = logging.getLogger('ajax')
 
 
-@json_body(service=opt(int), mark=opt(int), model=opt(str), tel=item(str))
+@json_body(
+    service=opt(int),
+    mark=opt(int),
+    name=opt(str),
+    model=opt(str),
+    tel=item(str),
+    text=opt(str)
+)
 def send_email(**kwargs):
     try:
         email.send(
-            host=current_app.config['EMAIL_HOST'],
+            host=current_app.config['EMAIL_SERVER'],
             log_pass=(current_app.config['EMAIL_USER'], current_app.config['EMAIL_PASS']),
             subject='Новое обращение на сайте',
             from_=current_app.config['EMAIL_FROM'],
@@ -25,5 +32,5 @@ def send_email(**kwargs):
         )
     except Exception:
         logger.exception('Send mail error')
-        return 500
+        return ''
     return jsonify(result='ok')

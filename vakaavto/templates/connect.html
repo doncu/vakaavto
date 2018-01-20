@@ -97,36 +97,8 @@
 {% block  scripts %}
   {{ super() }}
   <script>
-    var service = {{ service.id }};
     $(function () {
-      $('#contact-form').submit(function (event) {
-        event.preventDefault();
-        $(this).validate();
-        var $inputs = $(this).find('input');
-        var data = {service: service};
-        $inputs.each(function () {
-          data[this.name] = $(this).val();
-        });
-        $.ajax({
-          url: '/ajax/send/email/',
-          type: 'post',
-          data: JSON.stringify(data),
-          dataType: 'json',
-          contentType: "application/json",
-          success: function (xhr, status) {
-            $.notify({
-              title: "<strong>Welcome:</strong> ",
-              message: "This plugin has been provided to you by Robert McIntosh aka mouse0270"
-            });
-          },
-          error: function () {
-            $.notify({
-              title: "<strong>Error:</strong> ",
-              message: "This plugin has been provided to you by Robert McIntosh aka mouse0270"
-            });
-          }
-        });
-      })
+      email_send('#contact-form', {service: '{{ service.id }}'});
     })
   </script>
 {% endblock %}

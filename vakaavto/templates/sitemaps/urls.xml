@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for url in urls %}
-        <sitemap>
+        <url>
           <loc>{{ 'https' if request.is_secure else 'http' }}://{{ config.DOMAIN }}{{ url }}</loc>
           <lastmod>2018-01-22</lastmod>
-        </sitemap>
+       </url>
     {% endfor %}
-</sitemapindex>
+</urlset>
