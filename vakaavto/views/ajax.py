@@ -11,7 +11,7 @@ from vakaavto.common import email
 logger = logging.getLogger('ajax')
 
 
-@json_body(service=opt(int), mark=item(int), model=item(str), tel=item(str))
+@json_body(service=opt(int), mark=opt(int), model=opt(str), tel=item(str))
 def send_email(**kwargs):
     try:
         email.send(
@@ -25,4 +25,5 @@ def send_email(**kwargs):
         )
     except Exception:
         logger.exception('Send mail error')
+        return 500
     return jsonify(result='ok')
