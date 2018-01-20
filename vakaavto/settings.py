@@ -18,8 +18,8 @@ class BaseSettings:
     EMAIL_SERVER = 'smtp.mail.ru:465'
     EMAIL_FROM = 'info@vakaavto.ru'
     EMAIL_TO = ''
-    EMAIL_USER = os.environ['EMAIL_USER']
-    EMAIL_PASS = os.environ['EMAIL_PASS']
+    EMAIL_USER = os.environ.get('EMAIL_USER')
+    EMAIL_PASS = os.environ.get('EMAIL_PASS')
 
 
 class LocalSettings(BaseSettings):
@@ -33,8 +33,8 @@ class LocalSettings(BaseSettings):
 class ProdSettings(BaseSettings):
     STATIC_URL_PATH = '/static'
 
-    DATABASE_URI = os.environ['DATABASE_URI']
-    IMG_PATH = os.environ['IMG_PATH']
+    DATABASE_URI = os.environ.get('DATABASE_URI')
+    IMG_PATH = os.environ.get('IMG_PATH')
 
 
 SETTINGS_MAP = {
