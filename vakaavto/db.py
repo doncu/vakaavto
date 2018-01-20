@@ -14,7 +14,6 @@ Session = sessionmaker(bind=engine)
 session = scoped_session(lambda: Session(autoflush=False, expire_on_commit=False))
 
 
-def import_models():
-    import vakaavto.models.auto
-    import vakaavto.models.service
-    Base.metadata.create_all(engine)
+def remove_session(*args):
+    session.rollback()
+    session.remove()

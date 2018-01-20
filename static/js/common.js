@@ -1,4 +1,4 @@
-function email_send(id, data) {
+function email_send(id, data, callback) {
   $(id).submit(function (event) {
     event.preventDefault();
     $(this).validate();
@@ -23,6 +23,7 @@ function email_send(id, data) {
           $(this).val('');
         });
         $('.selectpicker').selectpicker('val', '');
+        if (!!callback) callback(true);
       },
       error: function () {
         $.notify({
@@ -30,6 +31,7 @@ function email_send(id, data) {
         }, {
           type: 'danger'
         });
+        if (!!callback) callback(false);
       }
     });
   });

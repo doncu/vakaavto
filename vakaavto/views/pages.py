@@ -8,9 +8,8 @@ from vakaavto import models
 
 
 def index():
-    services = db.session.query(models.Service).filter(models.Service.parent_id == None).all()
-    auto_marks = db.session.query(models.AutoMark).all()
-    return render_template('index.html', services=services, auto_marks=auto_marks)
+    catalog = db.session.query(models.Service).filter(models.Service.parent_id == None).all()
+    return render_template('index.html', catalog=catalog)
 
 
 def help():
@@ -29,13 +28,12 @@ def catalog(alias=None):
     for obj in service_objects:
         childs[obj.parent_id].append(obj)
     catalogs = [dict(obj=obj, services=childs.get(obj.id, [])) for obj in catalogs]
-    return render_template('services.html', alias=alias, catalogs=catalogs)
+    return render_template('catalog.html', alias=alias, catalogs=catalogs)
 
 
 def service(catalog_alias, service_alias):
     catalog = db.session.query(models.Service).filter(models.Service.alias == catalog_alias).first()
     obj = db.session.query(models.Service).filter(models.Service.alias == service_alias).first()
-    auto_marks = db.session.query(models.AutoMark).all()
     if not catalog or not obj:
         return abort(404)
-    return render_template('connect.html', catalog=catalog, service=obj, auto_marks=auto_marks)
+    return render_template('service.html', catalog=catalog, service=obj)

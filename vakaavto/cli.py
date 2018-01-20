@@ -21,7 +21,8 @@ def cli(debug):
 @cli.command()
 def initdb():
     from vakaavto import db
-    db.import_models()
+    from vakaavto import models
+    db.Base.metadata.create_all(db.engine)
 
 
 if __name__ == '__main__':

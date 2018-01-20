@@ -256,7 +256,7 @@
             <h2 class="this-title">Более 150 услуг по ремонту и обслуживанию автомобилей</h2>
             <p>Выберите категорию, нужную услугу и сделайте заказ</p>
         </div>
-        {% for chunk in chunks(services, 3) %}
+        {% for chunk in chunks(catalog, 3) %}
             <div class="service-blocks row">
                 {% for service in chunk %}
                 <div class="col-sm-4 related-case2">
@@ -284,7 +284,7 @@
         <div align="center" class="row">
             <table class="table table-bordered" style="border: hidden">
                 <tbody>
-                {% for chunk in chunks(auto_marks, 6) %}
+                {% for chunk in chunks(auto_marks(), 6) %}
                     <tr>
                     {% for mark in chunk %}
                         <td style="text-align: center; border: hidden"><img src="{{ url_for('image', filename=mark.image or '')}}" alt=""><p>{{ mark.title }}</p></td>

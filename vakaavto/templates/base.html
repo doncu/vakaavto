@@ -92,7 +92,11 @@
                 <form id="modal-contact-form" role="form">
                   <div class="form-group">
                     <label for="mark">Марка Авто</label>
-                    <input type="text" class="form-control" name="mark" placeholder="Укажите марку авто" required/>
+                    <select class="selectpicker form-control" data-style="btn btn-small" name="mark" title="Марка" data-live-search="true">
+                        {% for mark in auto_marks() %}
+                          <option value="{{ mark.id }}">{{ mark.title }}</option>
+                        {% endfor %}
+                      </select>
                   </div>
                   <div class="form-group">
                     <label for="model">Модель Авто</label>
@@ -100,7 +104,11 @@
                   </div>
                   <div class="form-group">
                     <label for="model">Вид работ</label>
-                    <input type="text" class="form-control" name="service" placeholder="Укажите желаемую услугу" required/>
+                    <select class="selectpicker form-control" data-style="btn btn-small" name="service" title="Вид работ" data-live-search="true">
+                        {% for service in services() %}
+                          <option value="{{ service.id }}">{{ service.title }}</option>
+                        {% endfor %}
+                      </select>
                   </div>
                   <div class="form-group">
                     <label for="phone_number">Номер телефона</label>
@@ -110,7 +118,7 @@
               </div>
               <!-- Modal Footer -->
               <div class="modal-footer">
-                <button type="submit" class="form-control btn btn-login center-block" data-dismiss="modal" style="max-width: 30%">Отправить</button>
+                <button type="submit" class="form-control btn btn-login center-block" style="max-width: 30%">Отправить</button>
               </div>
             </div>
           </div>
@@ -194,7 +202,11 @@
   <script>
     $(function () {
       email_send('#footer-contact-form', {});
-      email_send('#modal-contact-form', {});
+      email_send('#modal-contact-form', {}, function (result) {
+        if (result) {
+          $('#ContactForm').modal('hide');
+        }
+      });
     })
   </script>
 {% endblock %}

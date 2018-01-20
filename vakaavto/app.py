@@ -19,14 +19,15 @@ app.config.from_object(conf)
 admin = Admin(app, name='admin')
 
 
-@app.teardown_request
-def remove_session(*args):
-    from vakaavto import db
-    db.session.rollback()
-    db.session.remove()
+import vakaavto.urls
+from vakaavto import db
+from vakaavto import models
 
-
+app.teardown_request(db.remove_session)
 app.add_template_global(utils.chunks, name='chunks')
 app.add_template_global(dt.datetime.now, name='now')
-
-import vakaavto.urls
+app.add_template_global(lambda: db.session.query(models.AutoMark).all(), name='auto_marks')
+app.add_template_global(
+    lambda: db.session.query(models.Service).filter(models.Service.parent_id != None).all(),
+    name='services'
+)
