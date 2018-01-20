@@ -27,8 +27,8 @@
                 <div class="col-md-12">
                   <form id="contact-form" method="post" role="form" style="display: block;">
                     <div class="form-group" style="margin-bottom: 10%">
-                      <select class="selectpicker form-control" data-style="btn btn-login" name="mark" title="Марка"
-                              data-live-search="true">
+                      <select class="selectpicker form-control" data-style="btn btn-login" name="mark" title="Марка" data-live-search="true">
+                      <option></option>
                         {% for mark in auto_marks %}
                           <option value="{{ mark.id }}">{{ mark.title }}</option>
                         {% endfor %}

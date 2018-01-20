@@ -22,6 +22,7 @@ function email_send(id, data) {
         $inputs.each(function () {
           $(this).val('');
         });
+        $('.selectpicker').selectpicker('val', '');
       },
       error: function () {
         $.notify({
