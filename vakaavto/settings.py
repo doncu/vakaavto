@@ -16,7 +16,7 @@ class BaseSettings:
     IMG_PATH = ''
 
     EMAIL_SERVER = 'smtp.mail.ru:465'
-    EMAIL_FROM = 'info@vakaavto.ru'
+    EMAIL_FROM = 'no-replay@vakaavto.ru'
     EMAIL_TO = ''
     EMAIL_USER = os.environ.get('EMAIL_USER')
     EMAIL_PASS = os.environ.get('EMAIL_PASS')

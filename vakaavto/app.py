@@ -26,6 +26,7 @@ from vakaavto import models
 app.teardown_request(db.remove_session)
 app.add_template_global(utils.chunks, name='chunks')
 app.add_template_global(dt.datetime.now, name='now')
+app.add_template_global(app.config['EMAIL_FROM'], name='email')
 app.add_template_global(lambda: db.session.query(models.AutoMark).all(), name='auto_marks')
 app.add_template_global(
     lambda: db.session.query(models.Service).filter(models.Service.parent_id != None).all(),
