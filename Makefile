@@ -5,6 +5,6 @@ build-tar-gz:
 	python setup.py sdist
 
 clean:
-	rm -rf dist/ build/ Vaka_Avto.egg-info
+	rm -rf dist/ build/ vakaavto.egg-info
 
 .PHONY: clean build-tar-gz build-wheel
