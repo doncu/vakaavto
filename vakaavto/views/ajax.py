@@ -32,5 +32,5 @@ def send_email(**kwargs):
         )
     except Exception:
         logger.exception('Send mail error')
-        return ''
+        return 500
     return jsonify(result='ok')
