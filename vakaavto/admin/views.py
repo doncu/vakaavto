@@ -41,7 +41,7 @@ class AutoMarks(AdminModelView):
     form_extra_fields = dict(
         image=upload.ImageUploadField(
             label='Картинка',
-            base_path=os.path.join(app.config['IMG_PATH'], 'marks'),
+            base_path=os.path.join(app.config['IMG_PATH']),
             endpoint='image'
         )
     )
