@@ -69,61 +69,105 @@
       <div class="collapse navbar-collapse" id="main_nav">
 
         <button class="btn btn-outline blue pull-right hidden-xs hidden-sm" data-toggle="modal"
-                data-target="#ContactForm">Заказать звонок
+                data-target="#contact2">Заказать звонок
         </button>
 
-        <div class="modal fade" id="ContactForm" tabindex="-1" role="dialog" aria-labelledby="ContactFormLabel"
-             aria-hidden="true" style="">
-          <div class="modal-dialog" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
-            <div class="modal-content" style="max-width: 500px">
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                  <span aria-hidden="true">&times;</span>
-                  <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="ContactFormLabel" style="text-align: center">
-                  Просто укажите ваши контактные данные и мы перезвоним вам
-                </h4>
-              </div>
+{#        <div class="modal fade" id="ContactForm" tabindex="-1" role="dialog" aria-labelledby="ContactFormLabel"#}
+{#             aria-hidden="true" style="">#}
+{#          <div class="modal-dialog" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">#}
+{#            <div class="modal-content" style="max-width: 500px">#}
+{#              <!-- Modal Header -->#}
+{#              <div class="modal-header">#}
+{#                <button type="button" class="close" data-dismiss="modal">#}
+{#                  <span aria-hidden="true">&times;</span>#}
+{#                  <span class="sr-only">Close</span>#}
+{#                </button>#}
+{#                <h4 class="modal-title" id="ContactFormLabel" style="text-align: center">#}
+{#                  Просто укажите ваши контактные данные и мы перезвоним вам#}
+{#                </h4>#}
+{#              </div>#}
+{##}
+{#              <!-- Modal Body -->#}
+{#              <div class="modal-body">#}
+{##}
+{#                <form id="modal-contact-form" role="form">#}
+{#                  <div class="form-group">#}
+{#                    <label for="mark">Марка Авто</label>#}
+{#                    <select class="form-control" data-style="btn btn-small" name="mark" title="Марка" data-live-search="true">#}
+{#                        {% for mark in auto_marks() %}#}
+{#                          <option value="{{ mark.id }}">{{ mark.title }}</option>#}
+{#                        {% endfor %}#}
+{#                      </select>#}
+{#                  </div>#}
+{#                  <div class="form-group">#}
+{#                    <label for="model">Модель Авто</label>#}
+{#                    <input type="text" class="form-control" name="model" placeholder="Укажите модель авто"/>#}
+{#                  </div>#}
+{#                  <div class="form-group">#}
+{#                    <label for="model">Вид работ</label>#}
+{#                    <select class="form-control" data-style="btn btn-small" name="service" title="Вид работ" data-live-search="true">#}
+{#                        {% for service in services() %}#}
+{#                          <option value="{{ service.id }}">{{ service.title }}</option>#}
+{#                        {% endfor %}#}
+{#                      </select>#}
+{#                  </div>#}
+{#                  <div class="form-group">#}
+{#                    <label for="phone_number">Номер телефона</label>#}
+{#                    <input type="text" class="form-control" name="tel" placeholder="Укажите ваш контактный номер" required/>#}
+{#                  </div>#}
+{#                    <span class="input-group-btn">#}
+{#                        <button type="submit" class="form-control btn btn-login center-block" style="margin-left: auto ;max-width: 30%">Отправить</button>#}
+{#                    </span>#}
+{#                </form>#}
+{#              </div>#}
+{##}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
 
-              <!-- Modal Body -->
-              <div class="modal-body">
 
-                <form id="modal-contact-form" role="form">
-                  <div class="form-group">
-                    <label for="mark">Марка Авто</label>
-                    <select class="form-control" data-style="btn btn-small" name="mark" title="Марка" data-live-search="true">
-                        {% for mark in auto_marks() %}
-                          <option value="{{ mark.id }}">{{ mark.title }}</option>
-                        {% endfor %}
-                      </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="model">Модель Авто</label>
-                    <input type="text" class="form-control" name="model" placeholder="Укажите модель авто"/>
-                  </div>
-                  <div class="form-group">
-                    <label for="model">Вид работ</label>
-                    <select class="form-control" data-style="btn btn-small" name="service" title="Вид работ" data-live-search="true">
-                        {% for service in services() %}
-                          <option value="{{ service.id }}">{{ service.title }}</option>
-                        {% endfor %}
-                      </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="phone_number">Номер телефона</label>
-                    <input type="text" class="form-control" name="tel" placeholder="Укажите ваш контактный номер" required/>
-                  </div>
-                    <span class="input-group-btn">
-                        <button type="submit" class="form-control btn btn-login center-block" style="margin-left: auto ;max-width: 30%">Отправить</button>
-                    </span>
-                </form>
-              </div>
-
+          <div class="dm-overlay" id="contact2">
+            <div class="dm-table">
+                <div class="dm-cell">
+                    <div class="dm-modal">
+{#                        <a href="#close" class="close"></a>#}
+                          <button type="button" class="close" data-dismiss="modal" style="color: #0f0f0f; opacity: 0.5"></button>
+                        <h3 style="text-align: center">Просто укажите ваши контактные данные и мы перезвоним вам</h3>
+                        <form id="modal-contact-form" role="form">
+                          <div class="form-group">
+                            <label for="mark">Марка Авто</label>
+                            <select class="form-control" data-style="btn btn-small" name="mark" title="Марка" data-live-search="true">
+                                {% for mark in auto_marks() %}
+                                  <option value="{{ mark.id }}">{{ mark.title }}</option>
+                                {% endfor %}
+                              </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="model">Модель Авто</label>
+                            <input type="text" class="form-control" name="model" placeholder="Укажите модель авто"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="model">Вид работ</label>
+                            <select class="form-control" data-style="btn btn-small" name="service" title="Вид работ" data-live-search="true">
+                                {% for service in services() %}
+                                  <option value="{{ service.id }}">{{ service.title }}</option>
+                                {% endfor %}
+                              </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="phone_number">Номер телефона</label>
+                            <input type="text" class="form-control" name="tel" placeholder="Укажите ваш контактный номер" required/>
+                          </div>
+                            <span class="input-group-btn">
+                                <button type="submit" class="form-control btn btn-login center-block" style="margin-left: auto ;max-width: 30%">Отправить</button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
             </div>
           </div>
-        </div>
+
+
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/">Главная</a></li>
           <li><a href="{{ url_for('help') }}">Как это работает</a></li>
