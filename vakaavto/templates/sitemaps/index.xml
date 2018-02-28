@@ -3,7 +3,7 @@
     {% for url in urls %}
         <sitemap>
           <loc>{{ 'https' if request.is_secure else 'http' }}://{{ config.DOMAIN }}{{ url }}</loc>
-          <lastmod>2018-01-22</lastmod>
+          <lastmod>2018-02-28</lastmod>
         </sitemap>
     {% endfor %}
 </sitemapindex>
