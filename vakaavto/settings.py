@@ -17,7 +17,7 @@ class BaseSettings:
 
     EMAIL_SERVER = 'smtp.mail.ru:465'
     EMAIL_FROM = 'no-replay@vakaavto.ru'
-    EMAIL_TO = ''
+    EMAIL_TO = 'no-replay@vakaavto.ru'
     EMAIL_USER = os.environ.get('EMAIL_USER')
     EMAIL_PASS = os.environ.get('EMAIL_PASS')
 
