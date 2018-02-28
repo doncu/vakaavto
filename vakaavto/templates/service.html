@@ -96,7 +96,7 @@
   {{ super() }}
   <script>
     $(function () {
-      email_send('#contact-form', {service: '{{ service.id }}', fun});
+      email_send('#contact-form', {service: '{{ service.id }}'});
     })
   </script>
 {% endblock %}

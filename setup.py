@@ -20,7 +20,7 @@ def get_recursive_files(src, dst):
 
 setuptools.setup(
     name='vakaavto',
-    version='1.1.6',
+    version='1.1.7',
     author="Ivan Krivosheev, Semen Doncu",
     author_email="py.krivosheev@gmail.com, doncusemen@gmail.com",
     description="Site for Vaka-Avto",
