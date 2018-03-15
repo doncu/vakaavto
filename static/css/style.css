@@ -832,7 +832,7 @@ a:focus, a:hover, .btn:focus, .btn:hover, button:focus, button:hover {
 }
 .featured-service-blocks.row.style2 {
   margin-top: 0;
-  padding: 95px 0 125px;
+  padding: 75px 0 125px;
 }
 
 .featured-service-block {
@@ -2656,7 +2656,6 @@ a:focus, a:hover, .btn:focus, .btn:hover, button:focus, button:hover {
 }
 
 .page-cover2 {
-  height: 454px;
   z-index: 1;
   -webkit-background-size: cover;
   background-size: cover;
