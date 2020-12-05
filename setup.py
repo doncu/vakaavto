@@ -19,7 +19,7 @@ def get_recursive_files(src, dst):
 
 setuptools.setup(
     name='vakaavto',
-    version='2.0.10',
+    version='2.0.11',
     author="Ivan Krivosheev, Semen Doncu",
     author_email="py.krivosheev@gmail.com, doncusemen@gmail.com",
     description="Site for Vaka-Avto",
@@ -33,11 +33,10 @@ setuptools.setup(
         'console_scripts': 'vakaavto=vakaavto.cli:cli'
     },
     install_requires=[
-        "flask==0.12.2",
-        "flask-admin==1.5.0",
+        "flask==1.1.2",
+        "flask-admin==1.5.7",
         "uwsgi==2.0.19",
-        "setuptools==36.7.2",
-        "sqlalchemy==1.1.15",
+        "sqlalchemy==1.3.15",
         "covador==0.9.17",
         "pillow==2.7.0",
     ]
