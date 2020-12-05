@@ -1,0 +1,17 @@
+[Unit]
+Description=vakaavto.ru
+After=network.target
+
+[Service]
+Type=simple
+User=vakaavto
+WorkingDirectory=/home/vakaavto
+
+Environment=DATABASE_URI=sqlite:///home/vakaavto/vakaavto.db
+Environment=IMG_PATH=/home/vakaavto/img/
+
+ExecStart=/home/vakaavto/vakaavto/bin/uwsgi --ini /home/vakaavto/vakaavto/etc/uwsgi.ini:prod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
