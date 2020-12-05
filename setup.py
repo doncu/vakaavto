@@ -29,10 +29,9 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     data_files=get_recursive_files('etc', 'etc') + get_recursive_files('static', 'static'),
-    entry_points='''
-        [console_scripts]
-        vakaavto=vakaavto:cli
-    ''',
+    entry_points={
+        'console_scripts': 'vakaavto=vakaavto.cli:cli'
+    },
     install_requires=[
         "flask==0.12.2",
         "flask-admin==1.5.0",
