@@ -32,7 +32,7 @@ setuptools.setup(
     install_requires=[
         "flask==0.12.2",
         "flask-admin==1.5.0",
-        "uwsgi==2.0.15",
+        "uwsgi==2.0.19",
         "setuptools==36.7.2",
         "sqlalchemy==1.1.15",
         "covador==0.9.17",
