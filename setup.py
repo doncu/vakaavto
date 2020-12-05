@@ -3,7 +3,6 @@ import pathlib
 import collections
 
 import setuptools
-from pip import req
 
 
 def get_recursive_files(src, dst):
@@ -30,5 +29,13 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     data_files=get_recursive_files('etc', 'etc') + get_recursive_files('static', 'static'),
-    install_requires=[str(ir.req) for ir in req.parse_requirements('requirements.txt', session='hack')]
+    install_requires=[
+        "flask==0.12.2",
+        "flask-admin==1.5.0",
+        "uwsgi==2.0.15",
+        "setuptools==36.7.2",
+        "sqlalchemy==1.1.15",
+        "covador==0.9.17",
+        "pillow==2.7.0",
+    ]
 )
