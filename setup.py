@@ -34,7 +34,7 @@ setuptools.setup(
         "flask-admin==1.5.0",
         "uwsgi==2.0.19",
         "setuptools==36.7.2",
-        "sqlalchemy==1.1.15",
+        "sqlalchemy==1.3.0",
         "covador==0.9.17",
         "pillow==2.7.0",
     ]
