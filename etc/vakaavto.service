@@ -7,8 +7,10 @@ Type=simple
 User=vakaavto
 WorkingDirectory=/home/vakaavto
 
-Environment=DATABASE_URI=sqlite:///home/vakaavto/vakaavto.db
+Environment=DATABASE_URI=sqlite:////home/vakaavto/vakaavto.db
 Environment=IMG_PATH=/home/vakaavto/img/
+Environment=EMAIL_USER=no-replay
+Environment=EMAIL_PASS=PRJbQe2wmn3&
 
 ExecStart=/home/vakaavto/vakaavto/bin/uwsgi --ini /home/vakaavto/vakaavto/etc/uwsgi.ini:prod
 Restart=on-failure
