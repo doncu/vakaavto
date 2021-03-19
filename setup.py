@@ -38,6 +38,6 @@ setuptools.setup(
         "uwsgi==2.0.19",
         "sqlalchemy==1.3.15",
         "covador==0.9.17",
-        "pillow==2.7.0",
+        "pillow==8.1.1",
     ]
 )
